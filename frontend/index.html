@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mardon Sodiqov — Backend Developer</title>
+<meta name="description" content="Mardon Sodiqov — Python / Django / FastAPI yo'nalishida Backend Developer. Portfolio sayt.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Ambient liquid background, fixed behind everything -->
+<div class="liquid-bg" aria-hidden="true">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="blob blob-c"></div>
+  <div class="grain"></div>
+</div>
+
+<!-- Floating glass nav -->
+<header class="nav-wrap">
+  <nav class="nav glass" id="nav">
+    <a href="#top" class="nav-logo">Mardon<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">Haqimda</a></li>
+      <li><a href="#skills">Ko'nikmalar</a></li>
+      <li><a href="#experience">Tajriba</a></li>
+      <li><a href="#projects">Loyihalar</a></li>
+      <li><a href="#contact">Aloqa</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Bog'lanish</a>
+    <button class="nav-burger" id="burger" aria-label="Menyu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile glass" id="navMobile">
+    <a href="#about">Haqimda</a>
+    <a href="#skills">Ko'nikmalar</a>
+    <a href="#experience">Tajriba</a>
+    <a href="#projects">Loyihalar</a>
+    <a href="#contact">Aloqa</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text" data-reveal>
+      <span class="eyebrow glass-pill">
+        <span class="pulse-dot"></span> Backend Developer &middot; Python
+      </span>
+      <h1 class="hero-title">
+        Salom, men <span class="grad-text">Mardon</span><br>
+        server tomonini <br class="br-mobile">quraman.
+      </h1>
+      <p class="hero-sub">
+        Python, Django va FastAPI yordamida ishonchli backend tizimlar,
+        PostgreSQL bilan optimallashtirilgan ma'lumotlar bazalari va
+        Aiogram asosida Telegram botlar yarataman.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          Loyihalarni ko'rish
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost glass">Bog'lanish</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" aria-label="GitHub" class="social-btn glass">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.79 10.78.57.1.78-.25.78-.55v-2.15c-3.17.69-3.84-1.36-3.84-1.36-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.53-.29-5.19-1.27-5.19-5.63 0-1.24.44-2.26 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.81 1.17 3.05 0 4.37-2.67 5.34-5.21 5.62.41.36.77 1.07.77 2.15v3.19c0 .3.21.66.79.55 4.52-1.51 7.78-5.76 7.78-10.78C23.25 5.48 18.27.5 12 .5Z"/></svg>
+        </a>
+        <a href="https://t.me/mardonsodikov" target="_blank" rel="noopener" aria-label="Telegram" class="social-btn glass">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4.9 18.98 20c-.23 1.02-.84 1.27-1.7.79l-4.7-3.46-2.27 2.18c-.25.25-.46.46-.94.46l.33-4.78L18.4 7.6c.4-.36-.09-.56-.63-.2L7.1 14.4l-4.62-1.45c-1-.32-1.02-1 .22-1.48L20.6 3.9c.85-.31 1.6.2 1.4 1Z"/></svg>
+        </a>
+        <a href="mailto:mardonsodikov1@gmail.com" aria-label="Email" class="social-btn glass">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-portrait" data-reveal>
+      <div class="portrait-ring">
+        <div class="portrait-blob"></div>
+        <img src="assets/photo.png" alt="Mardon Sodiqov" class="portrait-img">
+        <div class="portrait-badge glass">
+          <span class="badge-dot"></span> 1 yil tajriba
+        </div>
+        <div class="portrait-tag glass code-font">&lt;/&gt; Iqtidor Academy</div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-cue" aria-label="Pastga o'tish">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 4v16m0 0-6-6m6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow code-font">01 / Haqimda</span>
+      <h2 class="section-title">Kim bo'lsa ham, kod bilan gaplashadi</h2>
+      <p class="section-sub">11-sinf o'quvchisi bo'lsam-da, backend dunyosida real tajriba orttirdim — ishlab chiqarish darajasidagi API'lar va avtomatlashtirilgan botlar ustida ishlayman.</p>
+    </div>
+
+    <div class="about-grid" data-reveal>
+      <div class="glass card about-card about-card--wide">
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 20h10M12 18v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Tajriba</h3>
+        <span class="card-meta code-font">Iqtidor Academy &middot; 1 yil</span>
+        <p>Django va FastAPI'da server mantig'ini ishlab chiqdim, PostgreSQL bilan optimallashtirilgan so'rovlar yozdim va Aiogram orqali akademiya jarayonlarini avtomatlashtiruvchi Telegram botlar yaratdim.</p>
+      </div>
+
+      <div class="glass card about-card">
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3 4 7v6c0 4.5 3.4 7.7 8 9 4.6-1.3 8-4.5 8-9V7l-8-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Ta'lim</h3>
+        <span class="card-meta code-font">11-sinf &middot; Bitiruvchi</span>
+        <p>Maktabda o'qish bilan bir vaqtda dasturlashni chuqur o'rganib, nazariyani darhol amaliyotga tatbiq qilaman.</p>
+      </div>
+
+      <div class="glass card about-card">
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Yondashuv</h3>
+        <span class="card-meta code-font">Clean &amp; Async</span>
+        <p>Toza kod, aniq strukturalar va asinxron so'rovlar — har bir loyihada barqarorlik va tezlikni birinchi o'ringa qo'yaman.</p>
+      </div>
+
+      <div class="glass card about-card">
+        <div class="card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 4v4M16 4v4M4 10h16M6 6h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Tillar</h3>
+        <span class="card-meta code-font">UZ &middot; RU &middot; EN</span>
+        <p>O'zbek — ona tili, Rus tilida erkin muloqot, Ingliz tilida texnik matnlarni o'qish va yozish darajasida.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow code-font">02 / Stack</span>
+      <h2 class="section-title">Ishlatadigan texnologiyalarim</h2>
+      <p class="section-sub">Backend, ma'lumotlar bazasi va kundalik ish vositalari.</p>
+    </div>
+
+    <div class="skills-grid" data-reveal>
+      <div class="glass card skill-card">
+        <h3 class="skill-group-title">
+          <span class="skill-group-icon">🐍</span> Backend
+        </h3>
+        <div class="skill-row" data-level="92"><span>Python</span><b class="code-font">92%</b><div class="bar"><i></i></div></div>
+        <div class="skill-row" data-level="85"><span>Django</span><b class="code-font">85%</b><div class="bar"><i></i></div></div>
+        <div class="skill-row" data-level="88"><span>FastAPI</span><b class="code-font">88%</b><div class="bar"><i></i></div></div>
+        <div class="skill-row" data-level="80"><span>Aiogram</span><b class="code-font">80%</b><div class="bar"><i></i></div></div>
+      </div>
+
+      <div class="glass card skill-card">
+        <h3 class="skill-group-title">
+          <span class="skill-group-icon">🗄️</span> Ma'lumotlar bazasi
+        </h3>
+        <div class="skill-row" data-level="83"><span>PostgreSQL</span><b class="code-font">83%</b><div class="bar"><i></i></div></div>
+        <div class="skill-row" data-level="78"><span>SQL optimizatsiya</span><b class="code-font">78%</b><div class="bar"><i></i></div></div>
+        <div class="skill-row" data-level="70"><span>Ma'lumotlar modellashtirish</span><b class="code-font">70%</b><div class="bar"><i></i></div></div>
+      </div>
+
+      <div class="glass card skill-card">
+        <h3 class="skill-group-title">
+          <span class="skill-group-icon">🛠️</span> Vositalar
+        </h3>
+        <div class="skill-row" data-level="86"><span>Git &amp; GitHub</span><b class="code-font">86%</b><div class="bar"><i></i></div></div>
+        <div class="skill-row" data-level="65"><span>REST API dizayni</span><b class="code-font">75%</b><div class="bar"><i></i></div></div>
+        <div class="skill-row" data-level="60"><span>Docker</span><b class="code-font">60%</b><div class="bar"><i></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow code-font">03 / Yo'l</span>
+      <h2 class="section-title">Tajriba yo'nalishi</h2>
+    </div>
+
+    <div class="timeline" data-reveal>
+      <div class="timeline-item glass card">
+        <span class="timeline-dot"></span>
+        <span class="timeline-date code-font">Hozirgi &middot; 1 yil</span>
+        <h3>Backend Developer — Iqtidor Academy</h3>
+        <ul>
+          <li>Django asosida veb-ilovalarning server mantig'ini ishlab chiqdim va qo'llab-quvvatladim.</li>
+          <li>FastAPI yordamida tez, xavfsiz va hujjatlashtirilgan RESTful API'larni loyihalashtirdim.</li>
+          <li>PostgreSQL'da relyatsion bazalarni tuzib, optimallashtirilgan SQL so'rovlar yozdim.</li>
+          <li>Aiogram kutubxonasi orqali akademiya jarayonlari uchun avtomatlashtirilgan Telegram botlar yaratdim.</li>
+        </ul>
+      </div>
+      <div class="timeline-item glass card">
+        <span class="timeline-dot"></span>
+        <span class="timeline-date code-font">Davom etmoqda</span>
+        <h3>11-sinf o'quvchisi — Bitiruv sinfi</h3>
+        <p>Maktab ta'limi bilan bir qatorda dasturlash sohasini mustaqil chuqurlashtirib o'rganmoqdaman.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow code-font">04 / Loyihalar</span>
+      <h2 class="section-title">Ustida ishlagan ishlarim</h2>
+      <p class="section-sub">Ko'proq loyihalar GitHub profilimda joylashgan.</p>
+    </div>
+
+    <div class="projects-grid" data-reveal>
+      <article class="glass card project-card">
+        <div class="project-glow"></div>
+        <span class="project-icon">🤖</span>
+        <h3>Akademiya Telegram Bot</h3>
+        <p>Iqtidor Academy uchun Aiogram 3.x asosida FSM bilan ishlaydigan, o'quvchi jarayonlarini avtomatlashtiruvchi bot.</p>
+        <div class="tag-row">
+          <span class="tag code-font">Python</span>
+          <span class="tag code-font">Aiogram</span>
+          <span class="tag code-font">PostgreSQL</span>
+        </div>
+        <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="project-link">
+          GitHub'da ko'rish
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="glass card project-card">
+        <div class="project-glow"></div>
+        <span class="project-icon">⚡</span>
+        <h3>FastAPI REST xizmati</h3>
+        <p>JWT autentifikatsiya, Pydantic validatsiya va PostgreSQL bilan ishlaydigan, to'liq hujjatlashtirilgan (Swagger) backend xizmati.</p>
+        <div class="tag-row">
+          <span class="tag code-font">FastAPI</span>
+          <span class="tag code-font">JWT</span>
+          <span class="tag code-font">SQLAlchemy</span>
+        </div>
+        <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="project-link">
+          GitHub'da ko'rish
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="glass card project-card">
+        <div class="project-glow"></div>
+        <span class="project-icon">🗂️</span>
+        <h3>Django boshqaruv paneli</h3>
+        <p>Ma'lumotlarni boshqarish uchun Django asosidagi ichki panel — optimallashtirilgan so'rovlar va toza CRUD tuzilmasi bilan.</p>
+        <div class="tag-row">
+          <span class="tag code-font">Django</span>
+          <span class="tag code-font">PostgreSQL</span>
+          <span class="tag code-font">Admin</span>
+        </div>
+        <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="project-link">
+          GitHub'da ko'rish
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow code-font">05 / Aloqa</span>
+      <h2 class="section-title">Birga loyiha qilamizmi?</h2>
+      <p class="section-sub">Xabar yuboring — imkon qadar tez javob beraman.</p>
+    </div>
+
+    <div class="contact-grid" data-reveal>
+      <form class="glass card contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <label for="name">Ismingiz</label>
+          <input type="text" id="name" name="name" placeholder="Ismingizni kiriting" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-row">
+          <label for="message">Xabar</label>
+          <textarea id="message" name="message" rows="5" placeholder="Xabaringizni yozing" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
+          <span id="submitLabel">Xabar yuborish</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+
+      <div class="contact-side">
+        <div class="glass card contact-info-card">
+          <h3>Ijtimoiy tarmoqlar</h3>
+          <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-icon glass">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.79 10.78.57.1.78-.25.78-.55v-2.15c-3.17.69-3.84-1.36-3.84-1.36-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.53-.29-5.19-1.27-5.19-5.63 0-1.24.44-2.26 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.81 1.17 3.05 0 4.37-2.67 5.34-5.21 5.62.41.36.77 1.07.77 2.15v3.19c0 .3.21.66.79.55 4.52-1.51 7.78-5.76 7.78-10.78C23.25 5.48 18.27.5 12 .5Z"/></svg>
+            </span>
+            <span><b>GitHub</b><small>@sodikovmardon</small></span>
+          </a>
+          <a href="https://t.me/mardonsodikov" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-icon glass">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4.9 18.98 20c-.23 1.02-.84 1.27-1.7.79l-4.7-3.46-2.27 2.18c-.25.25-.46.46-.94.46l.33-4.78L18.4 7.6c.4-.36-.09-.56-.63-.2L7.1 14.4l-4.62-1.45c-1-.32-1.02-1 .22-1.48L20.6 3.9c.85-.31 1.6.2 1.4 1Z"/></svg>
+            </span>
+            <span><b>Telegram</b><small>@mardonsodikov</small></span>
+          </a>
+          <a href="mailto:mardonsodikov1@gmail.com" class="contact-link">
+            <span class="contact-link-icon glass">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span><b>Email</b><small>mardonsodikov1@gmail.com</small></span>
+          </a>
+        </div>
+
+        <div class="glass card contact-info-card">
+          <h3>Bog'lanish ma'lumotlari</h3>
+          <p class="plain-info">📞 +998 (97) 904-18-20</p>
+          <p class="plain-info">📍 Toshkent, O'zbekiston</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="glass footer-bar">
+    <span>&copy; 2026 Mardon Sodiqov. Barcha huquqlar himoyalangan.</span>
+    <div class="footer-socials">
+      <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.79 10.78.57.1.78-.25.78-.55v-2.15c-3.17.69-3.84-1.36-3.84-1.36-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.53-.29-5.19-1.27-5.19-5.63 0-1.24.44-2.26 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.81 1.17 3.05 0 4.37-2.67 5.34-5.21 5.62.41.36.77 1.07.77 2.15v3.19c0 .3.21.66.79.55 4.52-1.51 7.78-5.76 7.78-10.78C23.25 5.48 18.27.5 12 .5Z"/></svg>
+      </a>
+      <a href="https://t.me/mardonsodikov" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4.9 18.98 20c-.23 1.02-.84 1.27-1.7.79l-4.7-3.46-2.27 2.18c-.25.25-.46.46-.94.46l.33-4.78L18.4 7.6c.4-.36-.09-.56-.63-.2L7.1 14.4l-4.62-1.45c-1-.32-1.02-1 .22-1.48L20.6 3.9c.85-.31 1.6.2 1.4 1Z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
