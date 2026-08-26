@@ -55,6 +55,81 @@ const API_BASE = "";
   requestAnimationFrame(tick);
 })();
 
+// ===== Custom Smooth Scroll (liquid feel) =====
+(function() {
+  const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const rmq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (!mq.matches || rmq.matches) return;
+
+  let currentY = window.scrollY;
+  let targetY = window.scrollY;
+  const LERP = 0.08;
+  let ticking = false;
+
+  const progressBar = document.getElementById("scrollProgressBar");
+  const maxScroll = () => document.documentElement.scrollHeight - window.innerHeight;
+
+  // Wheel event: accumulate target position
+  function onWheel(e) {
+    e.preventDefault();
+    const delta = e.deltaY;
+    targetY = Math.min(Math.max(targetY + delta, 0), maxScroll());
+  }
+
+  // RAF loop: lerp current toward target
+  function tick() {
+    const diff = targetY - currentY;
+    if (Math.abs(diff) > 0.5) {
+      currentY += diff * LERP;
+      window.scrollTo(0, Math.round(currentY));
+    } else {
+      currentY = targetY;
+      window.scrollTo(0, targetY);
+    }
+
+    // Progress bar
+    if (progressBar) {
+      const pct = maxScroll() > 0 ? (currentY / maxScroll()) * 100 : 0;
+      progressBar.style.width = pct + "%";
+    }
+
+    ticking = false;
+  }
+
+  function loop() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(loop);
+  }
+
+  // Sync target on native scroll (e.g. keyboard, scrollbar drag)
+  function onScroll() {
+    if (Math.abs(window.scrollY - currentY) > 50) {
+      targetY = window.scrollY;
+      currentY = window.scrollY;
+    }
+  }
+
+  window.addEventListener("wheel", onWheel, { passive: false });
+  window.addEventListener("scroll", onScroll, { passive: true });
+  requestAnimationFrame(loop);
+
+  // Smooth scroll for anchor links
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute("href");
+    if (!id || id === "#") return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    targetY = target.getBoundingClientRect().top + window.scrollY;
+    currentY = window.scrollY;
+  });
+})();
+
 // ===== Scroll-spy: active nav link =====
 (function() {
   const sections = document.querySelectorAll(".section[id]");

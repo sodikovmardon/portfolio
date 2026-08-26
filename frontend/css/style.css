@@ -29,7 +29,7 @@
 }
 
 *,*::before,*::after{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
+html{ scroll-behavior: auto; }
 
 body{
   margin:0;
@@ -247,6 +247,17 @@ button{ font-family: inherit; cursor:pointer; }
 @keyframes cvBounce{
   0%,100%{ transform: translateY(0); }
   50%{ transform: translateY(4px); }
+}
+
+/* ================= SCROLL PROGRESS ================= */
+.scroll-progress{
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  height:3px; background:transparent; overflow:hidden;
+}
+.scroll-progress-bar{
+  height:100%; width:0%;
+  background:linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  transition:none; will-change:width;
 }
 
 /* ================= NAV ================= */
