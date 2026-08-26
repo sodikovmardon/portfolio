@@ -11,6 +11,6 @@ services:
       - key: ENVIRONMENT
         value: production
       - key: DATABASE_URL
-        sync: false
+        value: sqlite+aiosqlite:///./portfolio.db
       - key: ALLOWED_ORIGINS
-        sync: false
+        value: ""
