@@ -1,7 +1,7 @@
 """
 Mardon Sodiqov — Portfolio Backend
 FastAPI ilovasining kirish nuqtasi.
-Backend va frontend bir portda (8000) ishlaydi.
+Backend va frontend bir portda ishlaydi.
 """
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -17,7 +17,12 @@ from app.core.database import init_db
 
 settings = get_settings()
 
-FRONTEND_DIR = Path(__file__).resolve().parent.parent.parent / "frontend"
+BACKEND_DIR = Path(__file__).resolve().parent.parent
+FRONTEND_DIR = BACKEND_DIR.parent / "frontend"
+
+# Agar frontend papkasi topilmasa (masalan, deploy paytida), backend papkasidagi frontend'ni qidiramiz
+if not FRONTEND_DIR.is_dir():
+    FRONTEND_DIR = BACKEND_DIR / "frontend"
 
 
 @asynccontextmanager
@@ -57,5 +62,9 @@ async def health_check():
 
 app.include_router(api_router)
 
+print(f"[INFO] FRONTEND_DIR: {FRONTEND_DIR} (exists: {FRONTEND_DIR.is_dir()})")
+
 if FRONTEND_DIR.is_dir():
     app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
+else:
+    print(f"[WARNING] Frontend directory not found at {FRONTEND_DIR}")

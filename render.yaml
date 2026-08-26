@@ -2,24 +2,15 @@ services:
   - type: web
     name: mardon-portfolio
     env: python
-    rootDir: backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     plan: free
     healthCheckPath: /api/health
 
     envVars:
-      # Muhit: production yoki development
       - key: ENVIRONMENT
         value: production
-
-      # Database: Hozircha SQLite (bepul reja cheklovi tufayli)
-      # Keyinroq PostgreSQL ga o'tish uchun quyidagini yoqing:
-      # DATABASE_URL: postgresql+asyncpg://user:password@host:5432/dbname
       - key: DATABASE_URL
         sync: false
-
-      # CORS: Render deploy qilingandan keyin shu domenni qo'shing
-      # Namuna: https://mardon-portfolio.onrender.com
       - key: ALLOWED_ORIGINS
         sync: false
