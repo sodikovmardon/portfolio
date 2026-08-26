@@ -7,20 +7,12 @@ nohup uvicorn app.main:app --host 0.0.0.0 --port 8000 > /tmp/backend.log 2>&1 &
 disown
 BACKEND=$!
 
-cd "$(dirname "$0")/frontend"
-nohup python3 -m http.server 5500 > /tmp/frontend.log 2>&1 &
-disown
-FRONTEND=$!
-
 sleep 2
 echo ""
-echo "✅ Ikkala xizmat ishga tushdi:"
-echo "   Frontend:  http://localhost:5500"
-echo "   Backend:   http://localhost:8000"
-echo "   Swagger:   http://localhost:8000/docs"
+echo "✅ Backend ishga tushdi:"
+echo "   Sayt + API:  http://localhost:8000"
+echo "   Swagger:     http://localhost:8000/docs"
 echo ""
-echo "Tekshirish:"
-curl -s http://localhost:8000/ && echo ""
-curl -s -o /dev/null -w "Frontend: %{http_code}\n" http://localhost:5500/
+curl -s http://localhost:8000/api/health && echo ""
 echo ""
-echo "To'xtatish uchun: bash /home/mardon/Загрузки/mardon-portfolio/project/stop.sh"
+echo "To'xtatish uchun: bash $(dirname "$0")/stop.sh"

@@ -1,12 +1,13 @@
 # Mardon Sodiqov — Portfolio
 
-"Liquid glass" uslubidagi shaxsiy portfolio sayt. Frontend va backend butunlay
-alohida papkalarda, real ishlaydigan Bog'lanish formasi bilan.
+"Liquid glass" uslubidagi shaxsiy portfolio sayt. Backend va frontend bir
+portda (8000) ishlaydi — FastAPI orqali API va statik fayllar xizmat qilinadi.
 
 ```
 project/
-├── backend/     → FastAPI (Python) — Bog'lanish formasi API'si
+├── backend/     → FastAPI (Python) — API + statik fayllarni serve qiladi
 ├── frontend/    → Static sayt (HTML/CSS/JS) — dizayn va UI
+├── Dockerfile
 └── docker-compose.yml
 ```
 
@@ -23,39 +24,24 @@ project/
 docker compose up --build
 ```
 
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:8000
+- Sayt + API: http://localhost:8000
 - Swagger hujjatlari: http://localhost:8000/docs
 
 ## Docker'siz ishga tushirish
 
-### Backend
-
 ```bash
 cd backend
 python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
 uvicorn app.main:app --reload
 ```
 
-Backend http://localhost:8000 manzilida ishga tushadi.
+Brauzerda oching: http://localhost:8000
 
-### Frontend
-
-Frontend — oddiy statik fayllar, build kerak emas. Istalgan usulda oching:
-
-```bash
-cd frontend
-python -m http.server 5500
-```
-
-Keyin brauzerda: http://localhost:5500
-
-> Eslatma: `frontend/js/script.js` faylida `API_BASE` o'zgaruvchisi backend
-> manzilini ko'rsatadi (standart: `http://localhost:8000`). Agar backend
-> boshqa manzilda ishlasa, shu joyni o'zgartiring.
+Backend orqali statik fayllar (HTML/CSS/JS) ham serve qilinadi — alohida
+http-server yoki boshqa port kerak emas.
 
 ## API
 
@@ -70,7 +56,6 @@ To'liq interaktiv hujjatlar: `/docs` (Swagger UI).
 ## Texnologiyalar
 
 **Backend:** FastAPI, SQLAlchemy 2 (async), SQLite (production'da PostgreSQL'ga
-oson o'zgartiriladi), Pydantic v2, CORS.
+oson o'zgartiriladi), Pydantic v2, StaticFiles.
 
-**Frontend:** Toza HTML/CSS/JS — hech qanday build vositasi shart emas,
-istalgan statik hosting'ga (GitHub Pages, Netlify, Vercel) joylash mumkin.
+**Frontend:** Toza HTML/CSS/JS — hech qanday build vositasi shart emas.

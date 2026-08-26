@@ -1,12 +1,15 @@
 """
 Mardon Sodiqov — Portfolio Backend
 FastAPI ilovasining kirish nuqtasi.
+Backend va frontend bir portda (8000) ishlaydi.
 """
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.api import api_router
 from app.core.config import get_settings
@@ -14,17 +17,18 @@ from app.core.database import init_db
 
 settings = get_settings()
 
+FRONTEND_DIR = Path(__file__).resolve().parent.parent.parent / "frontend"
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Ilova ishga tushganda jadvallarni tayyorlaydi
     await init_db()
     yield
 
 
 app = FastAPI(
     title=settings.APP_NAME,
-    description="Mardon Sodiqov portfolio sayti uchun backend API (Bog'lanish formasi va h.k.)",
+    description="Mardon Sodiqov portfolio sayti uchun backend API",
     version="1.0.0",
     lifespan=lifespan,
 )
@@ -46,14 +50,12 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
     )
 
 
-@app.get("/", tags=["Health"])
-async def root():
-    return {"status": "ok", "service": settings.APP_NAME}
-
-
 @app.get("/api/health", tags=["Health"])
 async def health_check():
     return {"status": "healthy"}
 
 
 app.include_router(api_router)
+
+if FRONTEND_DIR.is_dir():
+    app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
