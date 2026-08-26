@@ -14,3 +14,5 @@ services:
         value: sqlite+aiosqlite:///./portfolio.db
       - key: ALLOWED_ORIGINS
         value: ""
+      - key: PYTHONPATH
+        value: /app/backend
