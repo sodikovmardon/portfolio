@@ -235,6 +235,8 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealEls.forEach(el => revealObserver.observe(el));
 
 // ===== Animated skill bars + count-up =====
+
+// ===== Animated skill bars + count-up =====
 function countUp(el, target, duration) {
   const start = performance.now();
   const tick = (now) => {
@@ -246,22 +248,6 @@ function countUp(el, target, duration) {
   };
   requestAnimationFrame(tick);
 }
-
-const skillRows = document.querySelectorAll(".skill-row");
-const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const row = entry.target;
-      const level = parseInt(row.dataset.level, 10) || 0;
-      const label = row.querySelector("b");
-      row.style.setProperty("--w", level + "%");
-      row.classList.add("filled");
-      if (label) countUp(label, level, 1200);
-      skillObserver.unobserve(row);
-    }
-  });
-}, { threshold: 0.4 });
-skillRows.forEach(row => skillObserver.observe(row));
 
 // ===== Experience timeline =====
 const expTimeline = document.querySelector(".exp-timeline");
