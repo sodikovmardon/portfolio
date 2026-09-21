@@ -17,19 +17,41 @@
   }
 })();
 
+// ===== Theme Toggle =====
+(function() {
+  const toggle = document.getElementById("themeToggle");
+  if (!toggle) return;
+
+  const stored = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  let theme = stored || (prefersDark ? "dark" : "light");
+
+  function applyTheme(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    localStorage.setItem("theme", t);
+    theme = t;
+  }
+
+  applyTheme(theme);
+
+  toggle.addEventListener("click", () => {
+    applyTheme(theme === "dark" ? "light" : "dark");
+  });
+})();
+
 // ===== Config =====
 const API_BASE = "";
 
-// ===== Blob parallax (liquid glass depth effect) =====
+// ===== Blob parallax =====
 (function() {
   const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
   const rmq = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (!mq.matches || rmq.matches) return;
 
   const blobs = [
-    { el: document.querySelector(".blob-a"), x: 0, y: 0, tx: 0, ty: 0, kx:  0.04, ky:  0.03, max: 22 },
-    { el: document.querySelector(".blob-b"), x: 0, y: 0, tx: 0, ty: 0, kx: -0.06, ky:  0.05, max: 18 },
-    { el: document.querySelector(".blob-c"), x: 0, y: 0, tx: 0, ty: 0, kx:  0.05, ky: -0.04, max: 25 },
+    { el: document.querySelector(".blob-a"), x: 0, y: 0, tx: 0, ty: 0, kx: 0.04, ky: 0.03, max: 22 },
+    { el: document.querySelector(".blob-b"), x: 0, y: 0, tx: 0, ty: 0, kx: -0.06, ky: 0.05, max: 18 },
+    { el: document.querySelector(".blob-c"), x: 0, y: 0, tx: 0, ty: 0, kx: 0.05, ky: -0.04, max: 25 },
   ].filter(b => b.el);
 
   let mx = window.innerWidth / 2;
@@ -55,7 +77,7 @@ const API_BASE = "";
   requestAnimationFrame(tick);
 })();
 
-// ===== Custom Smooth Scroll (liquid feel) =====
+// ===== Custom Smooth Scroll =====
 (function() {
   const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
   const rmq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -69,14 +91,11 @@ const API_BASE = "";
   const progressBar = document.getElementById("scrollProgressBar");
   const maxScroll = () => document.documentElement.scrollHeight - window.innerHeight;
 
-  // Wheel event: accumulate target position
   function onWheel(e) {
     e.preventDefault();
-    const delta = e.deltaY;
-    targetY = Math.min(Math.max(targetY + delta, 0), maxScroll());
+    targetY = Math.min(Math.max(targetY + e.deltaY, 0), maxScroll());
   }
 
-  // RAF loop: lerp current toward target
   function tick() {
     const diff = targetY - currentY;
     if (Math.abs(diff) > 0.5) {
@@ -86,25 +105,18 @@ const API_BASE = "";
       currentY = targetY;
       window.scrollTo(0, targetY);
     }
-
-    // Progress bar
     if (progressBar) {
       const pct = maxScroll() > 0 ? (currentY / maxScroll()) * 100 : 0;
       progressBar.style.width = pct + "%";
     }
-
     ticking = false;
   }
 
   function loop() {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(tick);
-    }
+    if (!ticking) { ticking = true; requestAnimationFrame(tick); }
     requestAnimationFrame(loop);
   }
 
-  // Sync target on native scroll (e.g. keyboard, scrollbar drag)
   function onScroll() {
     if (Math.abs(window.scrollY - currentY) > 50) {
       targetY = window.scrollY;
@@ -116,7 +128,6 @@ const API_BASE = "";
   window.addEventListener("scroll", onScroll, { passive: true });
   requestAnimationFrame(loop);
 
-  // Smooth scroll for anchor links
   document.addEventListener("click", (e) => {
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;
@@ -130,7 +141,7 @@ const API_BASE = "";
   });
 })();
 
-// ===== Scroll-spy: active nav link =====
+// ===== Scroll-spy =====
 (function() {
   const sections = document.querySelectorAll(".section[id]");
   const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
@@ -149,62 +160,6 @@ const API_BASE = "";
 
   sections.forEach(s => observer.observe(s));
 })();
-
-// ===== i18n: Language switching =====
-let currentLang = localStorage.getItem("lang") || (function() {
-  const bl = (navigator.language || "").toLowerCase();
-  if (bl.startsWith("ru")) return "ru";
-  if (bl.startsWith("en")) return "en";
-  return "uz";
-})();
-
-function t(key) {
-  return (window.__I18N && window.__I18N[currentLang] && window.__I18N[currentLang][key])
-    || (window.__I18N && window.__I18N.uz && window.__I18N.uz[key])
-    || key;
-}
-
-function applyLang(lang) {
-  currentLang = lang;
-  localStorage.setItem("lang", lang);
-  document.documentElement.lang = lang;
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    el.textContent = t(key);
-  });
-
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-    const key = el.getAttribute("data-i18n-placeholder");
-    el.placeholder = t(key);
-  });
-
-  document.querySelectorAll(".lang-option").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
-  });
-
-  document.getElementById("langBtn").textContent = lang.toUpperCase();
-}
-
-// Language switcher dropdown
-const langBtn = document.getElementById("langBtn");
-const langDropdown = document.getElementById("langDropdown");
-
-langBtn?.addEventListener("click", (e) => {
-  e.stopPropagation();
-  langDropdown.classList.toggle("open");
-});
-
-document.querySelectorAll(".lang-option").forEach(btn => {
-  btn.addEventListener("click", () => {
-    applyLang(btn.dataset.lang);
-    langDropdown.classList.remove("open");
-  });
-});
-
-document.addEventListener("click", () => langDropdown?.classList.remove("open"));
-
-applyLang(currentLang);
 
 // ===== Nav: scroll shrink + mobile menu =====
 const nav = document.getElementById("nav");
@@ -234,20 +189,33 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 revealEls.forEach(el => revealObserver.observe(el));
 
-// ===== Animated skill bars + count-up =====
-
-// ===== Animated skill bars + count-up =====
-function countUp(el, target, duration) {
+// ===== Count-up animation =====
+function countUp(el, target, suffix, duration) {
   const start = performance.now();
   const tick = (now) => {
     const elapsed = now - start;
     const progress = Math.min(elapsed / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(eased * target) + "%";
+    el.textContent = Math.round(eased * target) + suffix;
     if (progress < 1) requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
 }
+
+// Observe stat counters
+const statNumbers = document.querySelectorAll(".stat-number[data-count]");
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || "";
+      countUp(el, target, suffix, 1800);
+      statObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+statNumbers.forEach(el => statObserver.observe(el));
 
 // ===== Experience timeline =====
 const expTimeline = document.querySelector(".exp-timeline");
@@ -276,55 +244,6 @@ expDots.forEach(dot => dotObserver.observe(dot));
 
 window.addEventListener("scroll", updateTimelineProgress, { passive: true });
 updateTimelineProgress();
-
-// ===== Project filters =====
-const filterBtns = document.querySelectorAll(".filter-btn");
-const projectCards = document.querySelectorAll(".project-card");
-
-filterBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    filterBtns.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    const cat = btn.dataset.filter;
-    projectCards.forEach(card => {
-      card.classList.toggle("hidden", cat !== "all" && card.dataset.category !== cat);
-    });
-  });
-});
-
-// ===== Project modal =====
-const modal = document.getElementById("projectModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalDesc = document.getElementById("modalDesc");
-const modalTags = document.getElementById("modalTags");
-const modalIcon = document.getElementById("modalIcon");
-const modalClose = document.getElementById("modalClose");
-
-const iconMap = { bot: "\u{1F916}", api: "\u26A1", web: "\u{1F5C4}\uFE0F" };
-
-document.querySelectorAll(".project-detail-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const card = btn.closest(".project-card");
-    const titleKey = btn.dataset.titleKey;
-    const descKey = btn.dataset.descKey;
-    modalTitle.textContent = titleKey ? t(titleKey) : btn.dataset.title;
-    modalDesc.textContent = descKey ? t(descKey) : btn.dataset.desc;
-    modalIcon.textContent = iconMap[card.dataset.category] || "\u{1F4C2}";
-    modalTags.innerHTML = btn.dataset.tags.split(",").map(tt =>
-      `<span class="tag code-font">${tt.trim()}</span>`
-    ).join("");
-    modal.classList.add("open");
-    document.body.style.overflow = "hidden";
-  });
-});
-
-function closeModal() {
-  modal.classList.remove("open");
-  document.body.style.overflow = "";
-}
-modalClose?.addEventListener("click", closeModal);
-modal?.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
 // ===== Certificate Lightbox =====
 (function() {
@@ -361,6 +280,12 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal
 
   document.querySelectorAll("[data-lightbox]").forEach(el => {
     el.addEventListener("click", () => showLb(parseInt(el.dataset.lightbox, 10)));
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        showLb(parseInt(el.dataset.lightbox, 10));
+      }
+    });
   });
 
   lbClose?.addEventListener("click", hideLb);
@@ -400,17 +325,17 @@ function clearError(input, errorEl) {
 
 nameInput?.addEventListener("input", () => {
   const v = nameInput.value.trim();
-  if (v.length > 0 && v.length < 2) showError(nameInput, nameError, t("err_name_short"));
+  if (v.length > 0 && v.length < 2) showError(nameInput, nameError, "Name is too short (minimum 2 characters).");
   else clearError(nameInput, nameError);
 });
 emailInput?.addEventListener("input", () => {
   const v = emailInput.value.trim();
-  if (v.length > 0 && !isValidEmail(v)) showError(emailInput, emailError, t("err_email_invalid"));
+  if (v.length > 0 && !isValidEmail(v)) showError(emailInput, emailError, "Please enter a valid email address.");
   else clearError(emailInput, emailError);
 });
 msgInput?.addEventListener("input", () => {
   const v = msgInput.value.trim();
-  if (v.length > 0 && v.length < 5) showError(msgInput, msgError, t("err_msg_short"));
+  if (v.length > 0 && v.length < 5) showError(msgInput, msgError, "Message is too short (minimum 5 characters).");
   else clearError(msgInput, msgError);
 });
 
@@ -436,11 +361,11 @@ form?.addEventListener("submit", async (e) => {
   };
 
   let hasError = false;
-  if (!payload.name || payload.name.length < 2) { showError(nameInput, nameError, t("err_name_short")); hasError = true; }
+  if (!payload.name || payload.name.length < 2) { showError(nameInput, nameError, "Name is too short (minimum 2 characters)."); hasError = true; }
   else clearError(nameInput, nameError);
-  if (!payload.email || !isValidEmail(payload.email)) { showError(emailInput, emailError, t("err_email_invalid")); hasError = true; }
+  if (!payload.email || !isValidEmail(payload.email)) { showError(emailInput, emailError, "Please enter a valid email address."); hasError = true; }
   else clearError(emailInput, emailError);
-  if (!payload.message || payload.message.length < 5) { showError(msgInput, msgError, t("err_msg_short")); hasError = true; }
+  if (!payload.message || payload.message.length < 5) { showError(msgInput, msgError, "Message is too short (minimum 5 characters)."); hasError = true; }
   else clearError(msgInput, msgError);
   if (hasError) return;
 
@@ -457,18 +382,18 @@ form?.addEventListener("submit", async (e) => {
     const data = await res.json().catch(() => ({}));
 
     if (res.status === 429) {
-      showToast(data.detail || t("toast_rate_limit"), "err");
+      showToast(data.detail || "Too many requests. Please try again later.", "err");
       return;
     }
-    if (!res.ok) throw new Error(data.detail || "Server xatoligi");
+    if (!res.ok) throw new Error(data.detail || "Server error");
 
-    showToast(t("toast_success"), "ok");
+    showToast("Message sent successfully!", "ok");
     form.reset();
     clearError(nameInput, nameError);
     clearError(emailInput, emailError);
     clearError(msgInput, msgError);
   } catch (err) {
-    showToast(err.message || t("toast_error"), "err");
+    showToast(err.message || "Failed to send message. Please try again.", "err");
   } finally {
     submitBtn.disabled = false;
     submitBtn.classList.remove("loading");
