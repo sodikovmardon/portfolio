@@ -202,20 +202,62 @@ const API_BASE = "";
 (function() {
   const sections = document.querySelectorAll(".section[id]");
   const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
-  if (!sections.length || !navLinks.length) return;
+  const moreDropdownLinks = document.querySelectorAll(".nav-more-dropdown a[href^='#']");
+  const navMoreBtn = document.getElementById("navMoreBtn");
+  if (!sections.length) return;
+
+  const allLinks = [...navLinks, ...moreDropdownLinks];
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute("id");
+        // Update regular nav links
         navLinks.forEach(link => {
           link.classList.toggle("active", link.getAttribute("href") === "#" + id);
         });
+        // Update more dropdown links
+        moreDropdownLinks.forEach(link => {
+          link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+        });
+        // Check if any more dropdown link is active
+        const moreActive = [...moreDropdownLinks].some(link => link.getAttribute("href") === "#" + id);
+        if (navMoreBtn) navMoreBtn.classList.toggle("active", moreActive);
       }
     });
   }, { rootMargin: "-40% 0px -55% 0px" });
 
   sections.forEach(s => observer.observe(s));
+})();
+
+// ===== More dropdown toggle =====
+(function() {
+  const moreBtn = document.getElementById("navMoreBtn");
+  const moreDropdown = document.getElementById("navMoreDropdown");
+  if (!moreBtn || !moreDropdown) return;
+
+  moreBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = moreDropdown.classList.contains("open");
+    moreDropdown.classList.toggle("open");
+    moreBtn.setAttribute("aria-expanded", !isOpen);
+  });
+
+  // Close on outside click
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".nav-more")) {
+      moreDropdown.classList.remove("open");
+      moreBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Close on link click
+  moreDropdown.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => {
+      moreDropdown.classList.remove("open");
+      moreBtn.setAttribute("aria-expanded", "false");
+    });
+  });
 })();
 
 // ===== Nav: scroll shrink + mobile menu =====

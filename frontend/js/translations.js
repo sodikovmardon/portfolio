@@ -8,6 +8,7 @@ window.__I18N = {
     nav_projects: "Loyihalar",
     nav_certificates: "Sertifikat",
     nav_cta: "Bog'lanish",
+    nav_more: "Ko'proq",
 
     hero_eyebrow: "11-sinf bitiruvchisi — 2026",
     hero_title_1: "Salom, men",
@@ -143,6 +144,7 @@ window.__I18N = {
     nav_projects: "Проекты",
     nav_certificates: "Сертификат",
     nav_cta: "Связаться",
+    nav_more: "Ещё",
 
     hero_eyebrow: "Ученик 11 класса — Выпуск 2026",
     hero_title_1: "Привет, я",
@@ -278,6 +280,7 @@ window.__I18N = {
     nav_projects: "Projects",
     nav_certificates: "Certificates",
     nav_cta: "Contact",
+    nav_more: "More",
 
     hero_eyebrow: "High School Senior — Class of 2026",
     hero_title_1: "Hi, I'm",
