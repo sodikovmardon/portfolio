@@ -39,6 +39,63 @@
   });
 })();
 
+// ===== i18n: Language switching =====
+let currentLang = localStorage.getItem("lang") || (function() {
+  const bl = (navigator.language || "").toLowerCase();
+  if (bl.startsWith("ru")) return "ru";
+  if (bl.startsWith("en")) return "en";
+  return "uz";
+})();
+
+function t(key) {
+  return (window.__I18N && window.__I18N[currentLang] && window.__I18N[currentLang][key])
+    || (window.__I18N && window.__I18N.uz && window.__I18N.uz[key])
+    || key;
+}
+
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem("lang", lang);
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    el.textContent = t(key);
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    el.placeholder = t(key);
+  });
+
+  document.querySelectorAll(".lang-option").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
+  const langBtn = document.getElementById("langBtn");
+  if (langBtn) langBtn.textContent = lang.toUpperCase();
+}
+
+// Language switcher dropdown
+const langBtn = document.getElementById("langBtn");
+const langDropdown = document.getElementById("langDropdown");
+
+langBtn?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  langDropdown.classList.toggle("open");
+});
+
+document.querySelectorAll(".lang-option").forEach(btn => {
+  btn.addEventListener("click", () => {
+    applyLang(btn.dataset.lang);
+    langDropdown?.classList.remove("open");
+  });
+});
+
+document.addEventListener("click", () => langDropdown?.classList.remove("open"));
+
+applyLang(currentLang);
+
 // ===== Config =====
 const API_BASE = "";
 
@@ -325,17 +382,17 @@ function clearError(input, errorEl) {
 
 nameInput?.addEventListener("input", () => {
   const v = nameInput.value.trim();
-  if (v.length > 0 && v.length < 2) showError(nameInput, nameError, "Name is too short (minimum 2 characters).");
+  if (v.length > 0 && v.length < 2) showError(nameInput, nameError, t("err_name_short"));
   else clearError(nameInput, nameError);
 });
 emailInput?.addEventListener("input", () => {
   const v = emailInput.value.trim();
-  if (v.length > 0 && !isValidEmail(v)) showError(emailInput, emailError, "Please enter a valid email address.");
+  if (v.length > 0 && !isValidEmail(v)) showError(emailInput, emailError, t("err_email_invalid"));
   else clearError(emailInput, emailError);
 });
 msgInput?.addEventListener("input", () => {
   const v = msgInput.value.trim();
-  if (v.length > 0 && v.length < 5) showError(msgInput, msgError, "Message is too short (minimum 5 characters).");
+  if (v.length > 0 && v.length < 5) showError(msgInput, msgError, t("err_msg_short"));
   else clearError(msgInput, msgError);
 });
 
@@ -361,11 +418,11 @@ form?.addEventListener("submit", async (e) => {
   };
 
   let hasError = false;
-  if (!payload.name || payload.name.length < 2) { showError(nameInput, nameError, "Name is too short (minimum 2 characters)."); hasError = true; }
+  if (!payload.name || payload.name.length < 2) { showError(nameInput, nameError, t("err_name_short")); hasError = true; }
   else clearError(nameInput, nameError);
-  if (!payload.email || !isValidEmail(payload.email)) { showError(emailInput, emailError, "Please enter a valid email address."); hasError = true; }
+  if (!payload.email || !isValidEmail(payload.email)) { showError(emailInput, emailError, t("err_email_invalid")); hasError = true; }
   else clearError(emailInput, emailError);
-  if (!payload.message || payload.message.length < 5) { showError(msgInput, msgError, "Message is too short (minimum 5 characters)."); hasError = true; }
+  if (!payload.message || payload.message.length < 5) { showError(msgInput, msgError, t("err_msg_short")); hasError = true; }
   else clearError(msgInput, msgError);
   if (hasError) return;
 
@@ -382,18 +439,18 @@ form?.addEventListener("submit", async (e) => {
     const data = await res.json().catch(() => ({}));
 
     if (res.status === 429) {
-      showToast(data.detail || "Too many requests. Please try again later.", "err");
+      showToast(data.detail || t("toast_rate_limit"), "err");
       return;
     }
-    if (!res.ok) throw new Error(data.detail || "Server error");
+    if (!res.ok) throw new Error(data.detail || t("toast_error"));
 
-    showToast("Message sent successfully!", "ok");
+    showToast(t("toast_success"), "ok");
     form.reset();
     clearError(nameInput, nameError);
     clearError(emailInput, emailError);
     clearError(msgInput, msgError);
   } catch (err) {
-    showToast(err.message || "Failed to send message. Please try again.", "err");
+    showToast(err.message || t("toast_error"), "err");
   } finally {
     submitBtn.disabled = false;
     submitBtn.classList.remove("loading");

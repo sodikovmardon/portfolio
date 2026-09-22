@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mardon Sodiqov — Aspiring Computer Scientist &amp; Back-End Engineer</title>
-<meta name="description" content="Mardon Sodiqov — Backend developer building production systems with Python, Django, and FastAPI. Applying for B.Sc. in Computer Science.">
+<title>Mardon Sodiqov — Backend Developer</title>
+<meta name="description" content="Mardon Sodiqov — Python / Django / FastAPI Backend Developer. Portfolio.">
 <meta name="theme-color" content="#060b16">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mardon Sodiqov — Aspiring Computer Scientist & Backend Engineer">
-<meta property="og:description" content="High school senior with 1 year of hands-on backend engineering, international training certificates, and production API experience. Applying for B.Sc. Computer Science.">
+<meta property="og:description" content="High school senior with 1 year of hands-on backend engineering, international training certificates, and production API experience.">
 <meta property="og:image" content="https://YOUR_DOMAIN.com/assets/og-image.png">
 <meta property="og:url" content="https://YOUR_DOMAIN.com/">
 <meta property="og:locale" content="en_US">
@@ -32,7 +32,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 
-<!-- Schema.org Structured Data -->
+<!-- Schema.org -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -41,56 +41,30 @@
   "url": "https://YOUR_DOMAIN.com/",
   "email": "mardonsodikov1@gmail.com",
   "telephone": "+998979041820",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Tashkent",
-    "addressCountry": "UZ"
-  },
+  "address": { "@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ" },
   "jobTitle": "Back-End Developer",
-  "knowsAbout": ["Python", "C++", "Django", "FastAPI", "PostgreSQL", "Docker", "Linux"],
-  "alumniOf": {
-    "@type": "EducationalOrganization",
-    "name": "Iqtidor Academy"
-  },
+  "knowsAbout": ["Python","C++","Django","FastAPI","PostgreSQL","Docker","Linux"],
+  "alumniOf": { "@type": "EducationalOrganization", "name": "Iqtidor Academy" },
   "hasCredential": [
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "certificate",
-      "name": "Backend Development",
-      "recognizedBy": {
-        "@type": "Organization",
-        "name": "Iqtidor Academy"
-      }
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "certificate",
-      "name": "Computer Literacy",
-      "recognizedBy": {
-        "@type": "Organization",
-        "name": "Iqtidor Academy"
-      }
-    }
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "name": "Backend Development", "recognizedBy": { "@type": "Organization", "name": "Iqtidor Academy" } },
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "name": "Computer Literacy", "recognizedBy": { "@type": "Organization", "name": "Iqtidor Academy" } }
   ]
 }
 </script>
 </head>
 <body>
 
-<!-- Preloader -->
 <div class="preloader" id="preloader">
   <div class="preloader-blob" aria-hidden="true"></div>
   <div class="preloader-ring"></div>
   <div class="preloader-logo">M.</div>
-  <span class="preloader-text">Loading...</span>
+  <span class="preloader-text" data-i18n="preloader_text">Yuklanmoqda...</span>
 </div>
 
-<!-- Scroll Progress -->
 <div class="scroll-progress" id="scrollProgress">
   <div class="scroll-progress-bar" id="scrollProgressBar"></div>
 </div>
 
-<!-- Background Blobs -->
 <div class="liquid-bg" aria-hidden="true">
   <div class="blob blob-a"></div>
   <div class="blob blob-b"></div>
@@ -98,380 +72,356 @@
   <div class="grain"></div>
 </div>
 
-<!-- Navigation -->
+<!-- ===== NAVIGATION ===== -->
 <header class="nav-wrap">
   <nav class="nav glass" id="nav" aria-label="Main navigation">
     <a href="#top" class="nav-logo">Mardon Sodiqov</a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#statement">Statement</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#about" data-i18n="nav_about">Haqimda</a></li>
+      <li><a href="#statement" data-i18n="nav_statement">Bayonot</a></li>
+      <li><a href="#skills" data-i18n="nav_skills">Ko'nikmalar</a></li>
+      <li><a href="#experience" data-i18n="nav_experience">Tajriba</a></li>
+      <li><a href="#projects" data-i18n="nav_projects">Loyihalar</a></li>
+      <li><a href="#certificates" data-i18n="nav_certificates">Sertifikat</a></li>
     </ul>
     <div class="nav-right">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
         <svg class="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
-      <a href="#contact" class="nav-cta">Contact</a>
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn glass" id="langBtn">UZ</button>
+        <div class="lang-dropdown glass" id="langDropdown">
+          <button class="lang-option" data-lang="uz">UZ</button>
+          <button class="lang-option" data-lang="ru">RU</button>
+          <button class="lang-option" data-lang="en">EN</button>
+        </div>
+      </div>
+      <a href="#contact" class="nav-cta" data-i18n="nav_cta">Bog'lanish</a>
     </div>
     <button class="nav-burger" id="burger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
   <div class="nav-mobile glass" id="navMobile">
-    <a href="#about">About</a>
-    <a href="#statement">Statement</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#certificates">Certificates</a>
-    <a href="#contact" class="nav-mobile-cta">Contact Me</a>
+    <a href="#about" data-i18n="nav_about">Haqimda</a>
+    <a href="#statement" data-i18n="nav_statement">Bayonot</a>
+    <a href="#skills" data-i18n="nav_skills">Ko'nikmalar</a>
+    <a href="#experience" data-i18n="nav_experience">Tajriba</a>
+    <a href="#projects" data-i18n="nav_projects">Loyihalar</a>
+    <a href="#certificates" data-i18n="nav_certificates">Sertifikat</a>
+    <a href="#contact" class="nav-mobile-cta" data-i18n="nav_cta">Bog'lanish</a>
+    <div class="lang-switcher-mobile">
+      <button class="lang-option" data-lang="uz">UZ</button>
+      <button class="lang-option" data-lang="ru">RU</button>
+      <button class="lang-option" data-lang="en">EN</button>
+    </div>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- ==================== HERO ==================== -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-text" data-reveal>
-      <span class="eyebrow glass-pill code-font">High School Senior — Class of 2026</span>
+      <span class="eyebrow glass-pill code-font" data-i18n="hero_eyebrow">11-sinf bitiruvchisi — 2026</span>
       <h1 class="hero-title">
-        Mardon Sodiqov
+        <span data-i18n="hero_title_1">Salom, men</span> <span class="grad-text">Mardon Sodiqov</span>
       </h1>
-      <p class="hero-subtitle">Aspiring Computer Scientist &amp; Back-End Engineer</p>
-      <p class="hero-sub">
-        High school senior with one year of hands-on back-end engineering experience, measurable contributions to production systems, and a portfolio of international training certificates from Iqtidor Academy.
+      <p class="hero-subtitle" data-i18n="hero_subtitle">Backend muhandis va kompyuter fanlari nomzodi</p>
+      <p class="hero-sub" data-i18n="hero_sub">
+        Python, Django va FastAPI yordamida ishonchli backend tizimlar,
+        PostgreSQL bilan optimallashtirilgan ma'lumotlar bazalari va
+        Aiogram asosida Telegram botlar yarataman.
       </p>
       <div class="hero-actions">
         <a href="assets/CV_Backend_Developer_Mardon's.pdf" download="Mardon_Sodiqov_CV.pdf" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Download Academic CV (PDF)
+          <span data-i18n="hero_btn_cv">CV yuklab olish</span>
         </a>
         <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="btn btn-secondary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          View GitHub Projects
+          <span data-i18n="hero_btn_github">GitHub loyihalar</span>
         </a>
-        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="hero_btn_contact">Bog'lanish</a>
       </div>
-
-      <!-- Stat Counters -->
       <div class="stat-row" data-reveal>
         <div class="stat-item">
           <span class="stat-number" data-count="1" data-suffix="+">0</span>
-          <span class="stat-label">Year Hands-On Backend Experience</span>
+          <span class="stat-label" data-i18n="stat_exp">Backend tajriba</span>
         </div>
         <div class="stat-item">
           <span class="stat-number" data-count="8" data-suffix="+">0</span>
-          <span class="stat-label">Core Technologies Used in Production</span>
+          <span class="stat-label" data-i18n="stat_tech">Texnologiyalar</span>
         </div>
         <div class="stat-item">
           <span class="stat-number" data-count="2" data-suffix="">0</span>
-          <span class="stat-label">International Training Certificates</span>
+          <span class="stat-label" data-i18n="stat_cert">Xalqaro sertifikat</span>
         </div>
       </div>
     </div>
-
     <div class="hero-portrait" data-reveal>
       <div class="portrait-ring">
         <div class="portrait-blob" aria-hidden="true"></div>
-        <img src="assets/Mardon.jpg" alt="Mardon Sodiqov, backend developer and computer science applicant" class="portrait-img" width="300" height="300">
+        <img src="assets/Mardon.jpg" alt="Mardon Sodiqov — Backend Developer" class="portrait-img" width="300" height="300">
       </div>
     </div>
-
-    <a href="#about" class="scroll-cue" aria-label="Scroll to about section">
+    <a href="#about" class="scroll-cue" aria-label="Pastga o'tish">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 4v16m0 0-6-6m6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </section>
 
-  <!-- ==================== ABOUT ==================== -->
+  <!-- ===== ABOUT ===== -->
   <section class="section" id="about">
     <div class="section-head" data-reveal>
-      <span class="eyebrow code-font">About Me</span>
-      <h2 class="section-title">Academic &amp; Technical Background</h2>
-      <p class="section-sub">A grounded overview of where I am, what I have built, and where I am headed.</p>
+      <span class="eyebrow code-font" data-i18n="about_eyebrow">Haqimda</span>
+      <h2 class="section-title" data-i18n="about_title">Akademik va texnik fonda</h2>
+      <p class="section-sub" data-i18n="about_sub">Qayerdan boshlaganim, nima qilganim va qayerga yo'l olmoqdamanim haqida.</p>
     </div>
-
     <div class="about-grid" data-reveal>
       <div class="glass card about-card about-card--wide">
         <div class="card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 20h10M12 18v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         </div>
-        <h3>Practical Experience</h3>
-        <span class="card-meta code-font">Iqtidor Academy &middot; 1 Year</span>
-        <p>Building and maintaining REST APIs with Django and FastAPI, optimizing PostgreSQL queries, and developing Telegram bot automation for internal academy systems.</p>
+        <h3 data-i18n="about_exp_title">Amaliy tajriba</h3>
+        <span class="card-meta code-font" data-i18n="about_exp_meta">Iqtidor Academy · 1 yil</span>
+        <p data-i18n="about_exp_desc">Django va FastAPI asosida REST API'lar yaratdim, PostgreSQL so'rovlarini optimallashtirdim va Telegram botlar bilan avtomatlashtirdim.</p>
         <div class="about-timeline">
           <span class="about-timeline-dot"></span>
           <div class="about-timeline-line"></div>
-          <span class="about-timeline-label code-font">2025 — Present</span>
+          <span class="about-timeline-label code-font" data-i18n="about_exp_timeline">2025 — hozir</span>
         </div>
       </div>
-
       <div class="glass card about-card">
         <div class="card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3 4 7v6c0 4.5 3.4 7.7 8 9 4.6-1.3 8-4.5 8-9V7l-8-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
         </div>
-        <h3>Education</h3>
-        <span class="card-meta code-font">11th Grade &middot; Graduating</span>
-        <p>11th grade high school student in Tashkent, complementing formal education with intensive backend development training.</p>
+        <h3 data-i18n="about_edu_title">Ta'lim</h3>
+        <span class="card-meta code-font" data-i18n="about_edu_meta">11-sinf · Bitiruvchi</span>
+        <p data-i18n="about_edu_desc">Maktab ta'limi bilan bir qatorda dasturlashni chuqurlashtirib o'rganmoqdaman.</p>
       </div>
-
       <div class="glass card about-card">
         <div class="card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         </div>
-        <h3>Approach</h3>
+        <h3 data-i18n="about_approach_title">Yondashuv</h3>
         <span class="card-meta code-font">Clean &amp; Async</span>
-        <p>Emphasis on clean code architecture, explicit data structures, and asynchronous solutions for production workloads.</p>
+        <p data-i18n="about_approach_desc">Toza kod arxitekturasi, aniq strukturalar va asinxron yechimlar.</p>
       </div>
-
       <div class="glass card about-card">
         <div class="card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 4v4M16 4v4M4 10h16M6 6h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h3>Languages</h3>
-        <span class="card-meta code-font">UZ &middot; RU &middot; EN</span>
-        <p>Uzbek (native), Russian (bilingual proficiency), English (upper-intermediate — capable of academic and technical communication).</p>
+        <h3 data-i18n="about_lang_title">Tillar</h3>
+        <span class="card-meta code-font">UZ · RU · EN</span>
+        <p data-i18n="about_lang_desc">O'zbek — ona tilim, rus tilida erkin muloqot qila olaman.</p>
       </div>
     </div>
   </section>
 
-  <!-- ==================== ACADEMIC STATEMENT ==================== -->
+  <!-- ===== ACADEMIC STATEMENT ===== -->
   <section class="section" id="statement">
     <div class="section-head" data-reveal>
-      <span class="eyebrow code-font">Academic Statement</span>
-      <h2 class="section-title">Why Computer Science</h2>
+      <span class="eyebrow code-font" data-i18n="stmt_eyebrow">Akademik bayonot</span>
+      <h2 class="section-title" data-i18n="stmt_title">Nega kompyuter fanlari</h2>
     </div>
-
     <div class="statement-content" data-reveal>
       <div class="glass card statement-card">
         <span class="statement-num code-font">01</span>
-        <h3>What Drew Me to Computer Science</h3>
-        <p>The first time I wrote a Python script that actually solved a real problem — automating a repetitive calculation for a school project — I realized that programming was not just an abstract skill but a tool that compounds. Every problem I encountered afterward, whether in math class or in building a Telegram bot, reinforced the same idea: the right algorithm and data structure can reduce hours of manual work to seconds. That concrete realization is what drew me to pursue computer science formally, not a vague fascination with technology.</p>
+        <h3 data-i18n="stmt_p1_title">Menda kompyuter fanlariga nima qiziqtirdi</h3>
+        <p data-i18n="stmt_p1_body">Birinchi marta Python skripti haqiqiy muammoni hal qilganda — maktab loyihasi uchun takroriy hisoblashni avtomatlashtirganda — men tushundimki, dasturlash abstrakt ko'nikma emas, balki kuchaytiriladigan amaliy vosita. Har bir keyingi muammo, xoh matematika darsida, xoh Telegram bot yaratishda, shu g'ayatni mustahkamladi: to'g'ri algoritm va ma'lumotlar tuzilmasi soatlab davom etgan ishlarni soniyalarga kamaytirishi mumkin.</p>
       </div>
-
       <div class="glass card statement-card">
         <span class="statement-num code-font">02</span>
-        <h3>From Theory to Practice at Iqtidor Academy</h3>
-        <p>At Iqtidor Academy, I spent one year working as a back-end developer, building REST APIs with Django and FastAPI, designing PostgreSQL schemas, and writing Telegram bot automation using Aiogram. One concrete problem I solved was optimizing a database query that was slowing down an internal reporting endpoint — by restructuring the query and adding proper indexing, I reduced response time for that endpoint. This experience taught me that backend engineering is not just about writing code, but about understanding how systems behave under real constraints.</p>
+        <h3 data-i18n="stmt_p2_title">Nazariyadan amaliyotga — Iqtidor Academy</h3>
+        <p data-i18n="stmt_p2_body">Iqtidor Academy'da bir yil backend dasturchi sifatida ishladim — Django va FastAPI asosida API'lar yaratdim, PostgreSQL sxemalarini loyihaladim va Aiogram orqali Telegram botlar yasaddim. Hal qilgan amaliy muammolarimdan biri — ichki hisobot endpointini sekinlashtirgan SQL so'rovni qayta tuzib, indeks qo'shish orqali javob vaqtini sezilarli darajada qisqartirdim.</p>
       </div>
-
       <div class="glass card statement-card">
         <span class="statement-num code-font">03</span>
-        <h3>Academic &amp; Career Goals</h3>
-        <p>A Computer Science undergraduate program will give me the theoretical foundation I currently lack — particularly in algorithms, data structures, distributed systems, and computational theory. While my practical experience has taught me to build functional systems, I want to understand why certain approaches work and when they fail. My goal is to work on backend infrastructure at scale, where systems design decisions directly affect millions of users. A rigorous CS education is the necessary next step to get there.</p>
+        <h3 data-i18n="stmt_p3_title">Akademik va kasbiy maqsadlar</h3>
+        <p data-i18n="stmt_p3_body">Kompyuter fanlari bakalavr dasturi menga hozir yetishmayotgan nazariy asosni beradi — algoritmlar, ma'lumotlar tuzilmasi, tarqatilgan tizimlar va hisoblash nazariyasi. Amaliy tajribam tufayli funksional tizimlar qurishni bilsam-da, nimaning uchun ishlashini va qachon muvaffaqiyatsiz bo'lishini tushunmoqchiman.</p>
       </div>
     </div>
   </section>
 
-  <!-- ==================== ACADEMIC INTERESTS ==================== -->
+  <!-- ===== ACADEMIC INTERESTS ===== -->
   <section class="section" id="academics">
     <div class="section-head" data-reveal>
-      <span class="eyebrow code-font">Academic Interests</span>
-      <h2 class="section-title">Coursework &amp; Self-Directed Learning</h2>
+      <span class="eyebrow code-font" data-i18n="acad_eyebrow">Akademik qiziqishlar</span>
+      <h2 class="section-title" data-i18n="acad_title">O'quv dasturi va mustaqil o'rganish</h2>
     </div>
-
     <div class="academics-grid" data-reveal>
       <div class="glass card academics-card">
         <div class="card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h3>School Subjects</h3>
-        <span class="card-meta code-font">Mathematics &middot; Physics &middot; Informatics</span>
-        <p>Strong performance in Mathematics and Informatics. Physics coursework reinforces analytical thinking relevant to systems-level problems.</p>
+        <h3 data-i18n="acad_school_title">Maktab fanlari</h3>
+        <span class="card-meta code-font" data-i18n="acad_school_meta">Matematika · Fizika · Informatika</span>
+        <p data-i18n="acad_school_desc">Matematika va Informatikada kuchli natijalar. Fizika kursi tizim darajasidagi muammolarga analitik fikrlashni mustahkamlaydi.</p>
       </div>
-
       <div class="glass card academics-card">
         <div class="card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h3>Competitions &amp; Events</h3>
-        <span class="card-meta code-font">[To be filled by candidate]</span>
-        <p>Placeholder for any math/science olympiad, hackathon, or academic competition participation. Confirm exact details before submission.</p>
+        <h3 data-i18n="acad_comp_title">Musobaqalar</h3>
+        <span class="card-meta code-font" data-i18n="acad_comp_meta">[Topshiruvchi to'ldirishi kerak]</span>
+        <p data-i18n="acad_comp_desc">Matematika/fan olimpiadasi, hackathon yoki akademik musobaqada qatnashish. Aniq tafsilotlarni topshirishdan oldin tasdiqlang.</p>
       </div>
-
       <div class="glass card academics-card">
         <div class="card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h3>Self-Directed Learning</h3>
-        <span class="card-meta code-font">Ongoing exploration</span>
-        <p>Currently studying: algorithms and data structures (Python), Linux system administration, database internals, and distributed systems concepts through online courses and open-source reading.</p>
+        <h3 data-i18n="acad_self_title">Mustaqil o'rganish</h3>
+        <span class="card-meta code-font" data-i18n="acad_self_meta">Doimiy izlanish</span>
+        <p data-i18n="acad_self_desc">Hozir o'rganayotganlarim: algoritmlar va ma'lumotlar tuzilmasi (Python), Linux tizim ma'muriyati, ma'lumotlar bazasi ichki tuzilmasi va tarqatilgan tizimlar.</p>
       </div>
     </div>
   </section>
 
-  <!-- ==================== TECHNICAL SKILLS ==================== -->
+  <!-- ===== SKILLS (MARQUEE) ===== -->
   <section class="section" id="skills">
     <div class="section-head" data-reveal>
-      <span class="eyebrow code-font">Technical Skills</span>
-      <h2 class="section-title">Technologies &amp; Tools</h2>
-      <p class="section-sub">Organized by category with production context for each group.</p>
+      <span class="eyebrow code-font" data-i18n="skills_eyebrow">Stack</span>
+      <h2 class="section-title" data-i18n="skills_title">Ishlatadigan texnologiyalarim</h2>
+      <p class="section-sub" data-i18n="skills_sub">Backend, ma'lumotlar bazasi va kundalik ish vositalari.</p>
     </div>
-
-    <div class="skills-matrix" data-reveal>
-      <!-- Programming Languages -->
-      <div class="glass card skill-group">
-        <h3 class="skill-group-title code-font">Programming Languages</h3>
-        <div class="skill-items">
-          <div class="skill-item">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="40" height="40" loading="lazy">
-            <div>
-              <strong>Python</strong>
-              <span class="skill-context">Primary language for all backend work and automation</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" width="40" height="40" loading="lazy">
-            <div>
-              <strong>C++</strong>
-              <span class="skill-context">Study of algorithms, memory management, and computational thinking</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40" loading="lazy">
-            <div>
-              <strong>JavaScript</strong>
-              <span class="skill-context">Basics — front-end interaction and API integration</span>
-            </div>
-          </div>
+    <div class="skills-marquee-wrapper">
+      <div class="marquee-fade-left"></div>
+      <div class="marquee-track">
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+          <span class="tech-card-name">Python</span>
+          <span class="tech-card-desc" data-i18n="skill_python_desc">Asosiy til — barcha backend va avtomatlashtirish</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+          <span class="tech-card-name">C++</span>
+          <span class="tech-card-desc" data-i18n="skill_cpp_desc">Algoritmlar, xotira boshqaruvi</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
+          <span class="tech-card-name">Django</span>
+          <span class="tech-card-desc" data-i18n="skill_django_desc">Ishlab chiqarish veb-ilovalari va API'lar</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI">
+          <span class="tech-card-name">FastAPI</span>
+          <span class="tech-card-desc" data-i18n="skill_fastapi_desc">Tez asinxron API'lar, avtomatik hujjatlar</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+          <span class="tech-card-name">PostgreSQL</span>
+          <span class="tech-card-desc" data-i18n="skill_pg_desc">Sxema loyihalash, so'rov optimallashtirish</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+          <span class="tech-card-name">Docker</span>
+          <span class="tech-card-desc" data-i18n="skill_docker_desc">Konteynerlashtirish, muhit boshqaruvi</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+          <span class="tech-card-name">Linux</span>
+          <span class="tech-card-desc" data-i18n="skill_linux_desc">Buyruq satri, server muhiti</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/telegram/telegram-original.svg" alt="Aiogram">
+          <span class="tech-card-name">Aiogram</span>
+          <span class="tech-card-desc" data-i18n="skill_aiogram_desc">Telegram bot — akademiya avtomatlashtirish</span>
+        </div>
+        <!-- Set 2 -->
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+          <span class="tech-card-name">Python</span>
+          <span class="tech-card-desc" data-i18n="skill_python_desc">Asosiy til — barcha backend va avtomatlashtirish</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+          <span class="tech-card-name">C++</span>
+          <span class="tech-card-desc" data-i18n="skill_cpp_desc">Algoritmlar, xotira boshqaruvi</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
+          <span class="tech-card-name">Django</span>
+          <span class="tech-card-desc" data-i18n="skill_django_desc">Ishlab chiqarish veb-ilovalari va API'lar</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI">
+          <span class="tech-card-name">FastAPI</span>
+          <span class="tech-card-desc" data-i18n="skill_fastapi_desc">Tez asinxron API'lar, avtomatik hujjatlar</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+          <span class="tech-card-name">PostgreSQL</span>
+          <span class="tech-card-desc" data-i18n="skill_pg_desc">Sxema loyihalash, so'rov optimallashtirish</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+          <span class="tech-card-name">Docker</span>
+          <span class="tech-card-desc" data-i18n="skill_docker_desc">Konteynerlashtirish, muhit boshqaruvi</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+          <span class="tech-card-name">Linux</span>
+          <span class="tech-card-desc" data-i18n="skill_linux_desc">Buyruq satri, server muhiti</span>
+        </div>
+        <div class="tech-card glass">
+          <img class="tech-card-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/telegram/telegram-original.svg" alt="Aiogram">
+          <span class="tech-card-name">Aiogram</span>
+          <span class="tech-card-desc" data-i18n="skill_aiogram_desc">Telegram bot — akademiya avtomatlashtirish</span>
         </div>
       </div>
-
-      <!-- Backend Frameworks -->
-      <div class="glass card skill-group">
-        <h3 class="skill-group-title code-font">Backend Frameworks</h3>
-        <div class="skill-items">
-          <div class="skill-item">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" width="40" height="40" loading="lazy">
-            <div>
-              <strong>Django</strong>
-              <span class="skill-context">Built and maintained production web applications and REST APIs</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" width="40" height="40" loading="lazy">
-            <div>
-              <strong>FastAPI</strong>
-              <span class="skill-context">High-performance async APIs with automatic OpenAPI docs</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Databases & Architecture -->
-      <div class="glass card skill-group">
-        <h3 class="skill-group-title code-font">Databases &amp; Architecture</h3>
-        <div class="skill-items">
-          <div class="skill-item">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="40" height="40" loading="lazy">
-            <div>
-              <strong>PostgreSQL</strong>
-              <span class="skill-context">Schema design, query optimization, and production data modeling</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon skill-icon-text">REST</span>
-            <div>
-              <strong>RESTful API Design</strong>
-              <span class="skill-context">Consistent endpoint design, authentication, and documentation</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tools & Methodologies -->
-      <div class="glass card skill-group">
-        <h3 class="skill-group-title code-font">Tools &amp; Methodologies</h3>
-        <div class="skill-items">
-          <div class="skill-item">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" width="40" height="40" loading="lazy">
-            <div>
-              <strong>Docker</strong>
-              <span class="skill-context">Containerization for consistent development and deployment</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="40" height="40" loading="lazy">
-            <div>
-              <strong>Linux</strong>
-              <span class="skill-context">Command-line proficiency and server environment management</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" width="40" height="40" loading="lazy">
-            <div>
-              <strong>Git &amp; GitHub</strong>
-              <span class="skill-context">Version control in team workflows</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/telegram/telegram-original.svg" alt="Aiogram" width="40" height="40" loading="lazy">
-            <div>
-              <strong>Aiogram</strong>
-              <span class="skill-context">Telegram bot framework used to build academy automation bots</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="marquee-fade-right"></div>
     </div>
   </section>
 
-  <!-- ==================== EXPERIENCE ==================== -->
+  <!-- ===== EXPERIENCE ===== -->
   <section class="section" id="experience">
     <div class="section-head" data-reveal>
-      <span class="eyebrow code-font">Experience</span>
-      <h2 class="section-title">Professional &amp; Academic Journey</h2>
+      <span class="eyebrow code-font" data-i18n="exp_eyebrow">Yo'l</span>
+      <h2 class="section-title" data-i18n="exp_title">Tajriba yo'nalishi</h2>
     </div>
-
     <div class="exp-timeline" data-reveal>
       <div class="exp-line"><div class="exp-line-fill"></div></div>
-
       <div class="exp-item">
         <span class="exp-dot"></span>
         <div class="exp-card glass card">
-          <span class="exp-date code-font">2025 — Present</span>
-          <h3>Back-End Developer — Iqtidor Academy</h3>
+          <span class="exp-date code-font" data-i18n="exp_date_1">2025 — hozirgi kun</span>
+          <h3 data-i18n="exp_job_title">Backend Developer — Iqtidor Academy</h3>
           <ul>
-            <li>Built and maintained REST APIs using Django and FastAPI for internal academy systems.</li>
-            <li>Designed and optimized PostgreSQL database queries to improve application responsiveness.</li>
-            <li>Developed Telegram bot automation (Aiogram) to streamline academy workflows and student communication.</li>
-            <li>Worked within a small engineering team, following Git-based version control practices.</li>
+            <li data-i18n="exp_bullet_1">Django asosida veb-ilovalarning server mantig'ini ishlab chiqdim.</li>
+            <li data-i18n="exp_bullet_2">FastAPI yordamida tez va hujjatlashtirilgan RESTful API'lar yaratdim.</li>
+            <li data-i18n="exp_bullet_3">PostgreSQL'da optimallashtirilgan SQL so'rovlar yozdim.</li>
+            <li data-i18n="exp_bullet_4">Aiogram orqali akademiya uchun Telegram botlar yaratdim.</li>
           </ul>
         </div>
       </div>
-
       <div class="exp-item">
         <span class="exp-dot"></span>
         <div class="exp-card glass card">
-          <span class="exp-date code-font">Ongoing</span>
-          <h3>11th Grade Student — Graduating Class</h3>
-          <p>High school student in Tashkent, Uzbekistan. Complementing formal education with intensive backend development training at Iqtidor Academy.</p>
+          <span class="exp-date code-font" data-i18n="exp_date_2">Davom etmoqda</span>
+          <h3 data-i18n="exp_edu_title">11-sinf o'quvchisi — Bitiruv sinfi</h3>
+          <p data-i18n="exp_edu_desc">Maktab ta'limi bilan bir qatorda dasturlashni chuqurlashtirib o'rganmoqdaman.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== PROJECTS ==================== -->
+  <!-- ===== PROJECTS ===== -->
   <section class="section" id="projects">
     <div class="section-head" data-reveal>
-      <span class="eyebrow code-font">Projects</span>
-      <h2 class="section-title">Technical Showcase</h2>
-      <p class="section-sub">Real projects demonstrating the skills matrix in action. More on <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="inline-link">GitHub</a>.</p>
+      <span class="eyebrow code-font" data-i18n="proj_eyebrow">Loyihalar</span>
+      <h2 class="section-title" data-i18n="proj_title">Ustida ishlagan ishlarim</h2>
+      <p class="section-sub" data-i18n="proj_sub">Ko'proq loyihalar GitHub profilimda joylashgan.</p>
     </div>
-
     <div class="projects-grid">
-      <!-- Featured Project -->
       <article class="glass card project-card project-card--featured" data-reveal style="transition-delay:.05s">
         <div class="project-glow" aria-hidden="true"></div>
         <div class="project-badge glass">
           <span class="badge-dot"></span>
-          <span>Live Production App</span>
+          <span data-i18n="proj_real_badge">Real loyiha</span>
         </div>
-        <h3>Uy-loyiha Studio</h3>
-        <p>A construction materials calculator — computes bricks, cement, sand, and other materials to generate accurate cost estimates. Full-stack web application with a working live demo.</p>
+        <h3 data-i18n="proj_real_title">Uy-loyiha Studio</h3>
+        <p data-i18n="proj_real_desc">Qurilish materiallar kalkulyatori — g'isht, tsement, qum va boshqa materiallarni hisoblab, smeta tuzish imkonini beruvchi to'liq ishlaydigan veb-ilova.</p>
         <div class="tag-row">
           <span class="tag code-font">React</span>
           <span class="tag code-font">Full-stack</span>
@@ -479,20 +429,19 @@
         </div>
         <div class="project-actions">
           <a href="https://uy-loyiha-studio-production.up.railway.app/" target="_blank" rel="noopener" class="project-link project-link--primary">
-            <span>Live Demo</span>
+            <span data-i18n="proj_live_demo">Live Demo</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="project-link">
-            <span>GitHub</span>
+            <span data-i18n="proj_github">GitHub'da ko'rish</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </article>
-
       <article class="glass card project-card" data-reveal style="transition-delay:.1s">
         <div class="project-glow" aria-hidden="true"></div>
-        <h3>Academy Telegram Bot</h3>
-        <p>Internal automation bot for Iqtidor Academy — handles student communication, workflows, and notifications using Aiogram 3.x with FSM state management.</p>
+        <h3 data-i18n="proj_1_title">Akademiya Telegram Bot</h3>
+        <p data-i18n="proj_1_desc">Iqtidor Academy uchun Aiogram 3.x asosida FSM bilan ishlaydigan bot.</p>
         <div class="tag-row">
           <span class="tag code-font">Python</span>
           <span class="tag code-font">Aiogram</span>
@@ -500,193 +449,175 @@
         </div>
         <div class="project-actions">
           <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="project-link">
-            <span>GitHub</span>
+            <span data-i18n="proj_github">GitHub'da ko'rish</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </article>
-
       <article class="glass card project-card" data-reveal style="transition-delay:.15s">
         <div class="project-glow" aria-hidden="true"></div>
-        <h3>FastAPI REST Service</h3>
-        <p>Backend service with JWT authentication, PostgreSQL integration, and automatic API documentation via FastAPI's OpenAPI specification.</p>
+        <h3 data-i18n="proj_2_title">FastAPI REST xizmati</h3>
+        <p data-i18n="proj_2_desc">JWT autentifikatsiya va PostgreSQL bilan ishlaydigan backend xizmati.</p>
         <div class="tag-row">
           <span class="tag code-font">FastAPI</span>
           <span class="tag code-font">JWT</span>
           <span class="tag code-font">SQLAlchemy</span>
-          <span class="tag code-font">PostgreSQL</span>
         </div>
         <div class="project-actions">
           <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="project-link">
-            <span>GitHub</span>
+            <span data-i18n="proj_github">GitHub'da ko'rish</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </article>
-
       <article class="glass card project-card" data-reveal style="transition-delay:.2s">
         <div class="project-glow" aria-hidden="true"></div>
-        <h3>Django Admin Dashboard</h3>
-        <p>Internal management panel built with Django — custom admin interface for data management, user administration, and content operations.</p>
+        <h3 data-i18n="proj_3_title">Django boshqaruv paneli</h3>
+        <p data-i18n="proj_3_desc">Django asosidagi ichki boshqaruv paneli.</p>
         <div class="tag-row">
           <span class="tag code-font">Django</span>
           <span class="tag code-font">PostgreSQL</span>
           <span class="tag code-font">Admin</span>
-          <span class="tag code-font">CRUD</span>
         </div>
         <div class="project-actions">
           <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="project-link">
-            <span>GitHub</span>
+            <span data-i18n="proj_github">GitHub'da ko'rish</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </article>
     </div>
-
-    <!-- GitHub Stats Widget -->
+    <!-- GitHub Stats -->
     <div class="github-stats glass card" data-reveal>
-      <h3>GitHub Activity</h3>
+      <h3 data-i18n="github_title">GitHub faoliyati</h3>
       <div class="github-stats-inner">
         <div class="github-stat">
-          <img src="https://github-readme-stats.vercel.app/api?username=sodikovmardon&show_icons=true&theme=dark&hide_border=true&bg_color=transparent&text_color=97a0b8&icon_color=38bdf8&title_color=38bdf8" alt="GitHub Stats for sodikovmardon" width="350" height="150" loading="lazy">
+          <img src="https://github-readme-stats.vercel.app/api?username=sodikovmardon&show_icons=true&theme=dark&hide_border=true&bg_color=transparent&text_color=97a0b8&icon_color=38bdf8&title_color=38bdf8" alt="GitHub Stats" width="350" height="150" loading="lazy">
         </div>
         <div class="github-stat">
-          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sodikovmardon&layout=compact&theme=dark&hide_border=true&bg_color=transparent&text_color=97a0b8&title_color=38bdf8" alt="Most used languages" width="170" height="150" loading="lazy">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sodikovmardon&layout=compact&theme=dark&hide_border=true&bg_color=transparent&text_color=97a0b8&title_color=38bdf8" alt="Top languages" width="170" height="150" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== CERTIFICATES ==================== -->
+  <!-- ===== CERTIFICATES ===== -->
   <section class="section" id="certificates">
     <div class="section-head" data-reveal>
-      <span class="eyebrow code-font">Certifications</span>
-      <h2 class="section-title">Verifiable Credentials</h2>
-      <p class="section-sub">Each certificate includes the issuing organization, date, and a viewable image for independent verification.</p>
+      <span class="eyebrow code-font" data-i18n="cert_eyebrow">Sertifikat</span>
+      <h2 class="section-title" data-i18n="cert_title">Tasdiqlangan bilim va ko'nikmalarim</h2>
     </div>
-
     <div class="cert-grid">
       <article class="glass card cert-card" data-reveal style="transition-delay:.1s">
         <div class="cert-badge glass">
           <span class="badge-dot"></span>
-          <span>Verified</span>
+          <span data-i18n="cert_verified">Tasdiqlangan</span>
         </div>
-        <div class="cert-img-container" data-lightbox="0" role="button" tabindex="0" aria-label="View full certificate: Backend Development">
-          <img src="assets/Back_end_mardon.jpg" alt="Backend Development certificate from Iqtidor Academy, issued 15 August 2026" class="cert-img" loading="lazy" width="600" height="400">
+        <div class="cert-img-container" data-lightbox="0" role="button" tabindex="0" aria-label="View certificate: Backend Development">
+          <img src="assets/Back_end_mardon.jpg" alt="Backend Development sertifikati — Iqtidor Academy, 15.08.2026" class="cert-img" loading="lazy" width="600" height="400">
           <div class="cert-img-overlay">
-            <span class="cert-zoom-text">View Full Certificate</span>
+            <span class="cert-zoom-text" data-i18n="cert_zoom">Kattalashtirish</span>
           </div>
         </div>
         <div class="cert-info">
-          <h3>Backend Development</h3>
-          <p class="cert-meta">Iqtidor Academy &middot; 15 August 2026</p>
+          <h3 data-i18n="cert_1_name">Backend Development</h3>
+          <p class="cert-meta" data-i18n="cert_1_meta">Iqtidor Academy · 15.08.2026</p>
         </div>
       </article>
-
       <article class="glass card cert-card" data-reveal style="transition-delay:.2s">
         <div class="cert-badge glass">
           <span class="badge-dot"></span>
-          <span>Verified</span>
+          <span data-i18n="cert_verified">Tasdiqlangan</span>
         </div>
-        <div class="cert-img-container" data-lightbox="1" role="button" tabindex="0" aria-label="View full certificate: Computer Literacy">
-          <img src="assets/Savotxonlik_mardon.jpg" alt="Computer Literacy certificate from Iqtidor Academy, issued 5 November 2025" class="cert-img" loading="lazy" width="600" height="400">
+        <div class="cert-img-container" data-lightbox="1" role="button" tabindex="0" aria-label="View certificate: Computer Literacy">
+          <img src="assets/Savotxonlik_mardon.jpg" alt="Kompyuter savodxonligi sertifikati — Iqtidor Academy, 05.11.2025" class="cert-img" loading="lazy" width="600" height="400">
           <div class="cert-img-overlay">
-            <span class="cert-zoom-text">View Full Certificate</span>
+            <span class="cert-zoom-text" data-i18n="cert_zoom">Kattalashtirish</span>
           </div>
         </div>
         <div class="cert-info">
-          <h3>Computer Literacy</h3>
-          <p class="cert-meta">Iqtidor Academy &middot; 05 November 2025</p>
+          <h3 data-i18n="cert_2_name">Kompyuter Savodxonligi</h3>
+          <p class="cert-meta" data-i18n="cert_2_meta">Iqtidor Academy · 05.11.2025</p>
         </div>
       </article>
     </div>
   </section>
 
   <!-- Certificate Lightbox -->
-  <div class="cert-lightbox" id="certLightbox" role="dialog" aria-label="Certificate viewer">
-    <button class="cert-lb-close" id="certLbClose" aria-label="Close">&times;</button>
-    <button class="cert-lb-prev" id="certLbPrev" aria-label="Previous certificate">&#8249;</button>
-    <button class="cert-lb-next" id="certLbNext" aria-label="Next certificate">&#8250;</button>
+  <div class="cert-lightbox" id="certLightbox" role="dialog" aria-label="Sertifikat ko'rish">
+    <button class="cert-lb-close" id="certLbClose" aria-label="Yopish">&times;</button>
+    <button class="cert-lb-prev" id="certLbPrev" aria-label="Oldingi">&#8249;</button>
+    <button class="cert-lb-next" id="certLbNext" aria-label="Keyingi">&#8250;</button>
     <div class="cert-lb-img-wrap">
-      <img src="" alt="Certificate preview" class="cert-lb-img" id="certLbImg">
+      <img src="" alt="Sertifikat" class="cert-lb-img" id="certLbImg">
     </div>
   </div>
 
-  <!-- ==================== MENTOR ENDORSEMENT ==================== -->
+  <!-- ===== MENTOR ENDORSEMENT ===== -->
   <section class="section" id="mentor">
     <div class="section-head" data-reveal>
-      <span class="eyebrow code-font">Mentor Endorsement</span>
-      <h2 class="section-title">Instructor Assessment</h2>
+      <span class="eyebrow code-font" data-i18n="mentor_eyebrow">Mentor bahosi</span>
+      <h2 class="section-title" data-i18n="mentor_title">O'qituvchi bahosi</h2>
     </div>
-
     <div class="glass card mentor-card" data-reveal>
       <svg class="mentor-quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21Z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1Z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
       <blockquote class="mentor-quote">
-        <p>[To be filled once mentor provides quote]</p>
+        <p data-i18n="mentor_quote">[Topshiruvchi mentor iqtibosini olgandan keyin to'ldiradi]</p>
       </blockquote>
       <div class="mentor-attribution">
         <span class="mentor-name">Uralov Zafar Baxromovich</span>
-        <span class="mentor-role code-font">IQ NTM Lead, Iqtidor Academy</span>
+        <span class="mentor-role code-font" data-i18n="mentor_role">IQ NTM rahbari, Iqtidor Academy</span>
       </div>
     </div>
   </section>
 
-  <!-- ==================== CONTACT ==================== -->
+  <!-- ===== CONTACT ===== -->
   <section class="section" id="contact">
     <div class="section-head" data-reveal>
-      <span class="eyebrow code-font">Contact</span>
-      <h2 class="section-title">Get in Touch</h2>
-      <p class="section-sub">For admissions inquiries, project discussions, or general correspondence.</p>
+      <span class="eyebrow code-font" data-i18n="contact_eyebrow">Aloqa</span>
+      <h2 class="section-title" data-i18n="contact_title">Bog'lanish</h2>
+      <p class="section-sub" data-i18n="contact_sub">Xabar yuboring — imkon qadar tez javob beraman.</p>
     </div>
-
     <div class="contact-grid" data-reveal>
       <form class="glass card contact-form" id="contactForm" novalidate>
         <div class="form-row">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required minlength="2" maxlength="120">
+          <label for="name" data-i18n="contact_name_label">Ismingiz</label>
+          <input type="text" id="name" name="name" data-i18n-placeholder="contact_name_placeholder" placeholder="Ismingizni kiriting" required minlength="2" maxlength="120">
           <span class="form-error" id="nameError" role="alert"></span>
         </div>
         <div class="form-row">
-          <label for="email">Email Address</label>
+          <label for="email" data-i18n="contact_email_label">Email</label>
           <input type="email" id="email" name="email" placeholder="you@example.com" required>
           <span class="form-error" id="emailError" role="alert"></span>
         </div>
         <div class="form-row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Your message" required minlength="5" maxlength="3000"></textarea>
+          <label for="message" data-i18n="contact_msg_label">Xabar</label>
+          <textarea id="message" name="message" rows="5" data-i18n-placeholder="contact_msg_placeholder" placeholder="Xabaringizni yozing" required minlength="5" maxlength="3000"></textarea>
           <span class="form-error" id="messageError" role="alert"></span>
         </div>
         <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
           <svg class="spinner" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="31.4 31.4" stroke-dashoffset="10"/></svg>
-          <span id="submitLabel">Send Message</span>
+          <span id="submitLabel" data-i18n="contact_submit">Xabar yuborish</span>
           <svg class="send-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </form>
-
       <div class="contact-side">
         <div class="glass card contact-info-card">
-          <h3>Contact Information</h3>
-          <a href="mailto:mardonsodikov1@gmail.com?subject=Regarding%20Mardon%20Sodiqov's%20Application" class="contact-link">
-            <span><b>Email</b><small>mardonsodikov1@gmail.com</small></span>
-          </a>
-          <a href="tel:+998979041820" class="contact-link">
-            <span><b>Phone</b><small>+998 (97) 904-18-20</small></span>
-          </a>
+          <h3 data-i18n="contact_socials">Ijtimoiy tarmoqlar</h3>
           <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="contact-link">
             <span><b>GitHub</b><small>@sodikovmardon</small></span>
           </a>
-          <span class="contact-link">
-            <span><b>Location</b><small>Tashkent, Uzbekistan</small></span>
-          </span>
-        </div>
-
-        <div class="glass card contact-info-card">
-          <h3>For Admissions Officers</h3>
-          <p class="plain-info">All claims on this site are honestly substantiated. Certificate images are independently verifiable. GitHub activity is publicly accessible.</p>
-          <a href="mailto:mardonsodikov1@gmail.com?subject=Regarding%20Mardon%20Sodiqov's%20Application" class="project-link" style="margin-top:10px">
-            <span>Send formal inquiry via email</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href="https://t.me/mardonsodikov" target="_blank" rel="noopener" class="contact-link">
+            <span><b>Telegram</b><small>@mardonsodikov</small></span>
           </a>
+          <a href="mailto:mardonsodikov1@gmail.com" class="contact-link">
+            <span><b>Email</b><small>mardonsodikov1@gmail.com</small></span>
+          </a>
+        </div>
+        <div class="glass card contact-info-card">
+          <h3 data-i18n="contact_info">Bog'lanish ma'lumotlari</h3>
+          <p class="plain-info" data-i18n="contact_phone">+998 (97) 904-18-20</p>
+          <p class="plain-info" data-i18n="contact_location">Toshkent, O'zbekiston</p>
         </div>
       </div>
     </div>
@@ -694,18 +625,15 @@
 
 </main>
 
-<!-- Toast -->
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-<!-- Footer -->
 <footer class="footer">
   <div class="footer-bar">
-    <span>&copy; 2026 Mardon Sodiqov. All rights reserved.</span>
-    <a href="https://github.com/sodikovmardon" target="_blank" rel="noopener" class="footer-link">GitHub</a>
-    <a href="mailto:mardonsodikov1@gmail.com" class="footer-link">Email</a>
+    <span data-i18n="footer_copy">&copy; 2026 Mardon Sodiqov. Barcha huquqlar himoyalangan.</span>
   </div>
 </footer>
 
+<script src="js/translations.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

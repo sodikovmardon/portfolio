@@ -549,6 +549,68 @@ img { max-width: 100%; height: auto; }
 .about-card--wide { grid-column: span 3; display: flex; flex-direction: column; }
 @media (min-width: 860px) { .about-card--wide { grid-column: span 1; } }
 
+/* ==================== SKILLS MARQUEE ==================== */
+.skills-marquee-wrapper{
+  position:relative; overflow:hidden;
+  width:100vw; margin-left: calc(-50vw + 50%);
+  padding: 20px 0;
+}
+.marquee-fade-left, .marquee-fade-right{
+  position:absolute; top:0; bottom:0; width:80px; z-index:2;
+  pointer-events:none;
+}
+.marquee-fade-left{ left:0; background: linear-gradient(to right, var(--bg), transparent); }
+.marquee-fade-right{ right:0; background: linear-gradient(to left, var(--bg), transparent); }
+.marquee-track{
+  display:flex; width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+  will-change: transform;
+}
+.skills-marquee-wrapper:hover .marquee-track{ animation-play-state: paused; }
+@keyframes marqueeScroll{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-50%); }
+}
+.tech-card{
+  flex-shrink:0; width:175px; margin-right:24px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding: 32px 18px; border-radius: var(--radius-md);
+  transition: transform .4s var(--ease), border-color .4s, box-shadow .4s;
+  cursor: default;
+}
+.tech-card:hover{
+  transform: translateY(-6px);
+  border-color: var(--accent-1);
+  box-shadow: 0 0 20px rgba(37,99,235,0.35);
+}
+.tech-card-icon{
+  width: 60px; height: 60px; margin-bottom: 12px;
+  transition: transform .6s ease; object-fit: contain;
+}
+.tech-card:hover .tech-card-icon{ transform: rotate(360deg); }
+.tech-card-name{
+  font-size: 14px; font-weight: 600; color: var(--text-muted);
+  text-align: center; transition: color .3s;
+}
+.tech-card:hover .tech-card-name{ color: var(--accent-1); }
+.tech-card-desc{
+  font-size: 11px; color: var(--text-faint);
+  text-align: center; margin-top: 6px; line-height: 1.4;
+  max-width: 140px;
+}
+@media (max-width: 640px){
+  .tech-card{ width:130px; margin-right:16px; padding:24px 14px; }
+  .tech-card-icon{ width:44px; height:44px; }
+  .tech-card-name{ font-size:12px; }
+  .tech-card-desc{ font-size:10px; max-width:110px; }
+  .marquee-fade-left, .marquee-fade-right{ width:40px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{ animation: none; }
+  .skills-marquee-wrapper{ overflow-x: auto; }
+  .marquee-fade-left, .marquee-fade-right{ display:none; }
+}
+
 /* ==================== ACADEMIC STATEMENT ==================== */
 .statement-content {
   display: flex; flex-direction: column; gap: 24px;
