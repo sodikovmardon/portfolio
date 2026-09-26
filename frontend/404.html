@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahifa topilmadi (404) — Mardon Sodiqov</title>
+<meta name="description" content="Siz izlagan sahifa topilmadi.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060b16;
+    --bg-soft: #0c1528;
+    --surface: rgba(255,255,255,0.055);
+    --border: rgba(56,189,248,0.12);
+    --text: #f3f5fb;
+    --text-muted: #97a0b8;
+    --accent-1: #2563eb;
+    --accent-2: #38bdf8;
+  }
+  [data-theme="light"] {
+    --bg: #f4f6fb;
+    --bg-soft: #eaecf2;
+    --surface: rgba(255,255,255,0.75);
+    --border: rgba(37,99,235,0.15);
+    --text: #0f172a;
+    --text-muted: #475569;
+    --accent-1: #1d4ed8;
+    --accent-2: #0284c7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% -10%, rgba(10,20,37,0.9) 0%, var(--bg) 55%),
+      radial-gradient(circle at 50% 50%, rgba(37,99,235,0.06) 0%, rgba(56,189,248,0.03) 40%, transparent 70%);
+    z-index: -2;
+  }
+  .code-font { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+  .err-wrap { max-width: 560px; text-align: center; }
+  .err-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(84px, 15vw, 148px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--accent-1);
+    margin-bottom: 8px;
+  }
+  .err-rule {
+    width: 46px;
+    height: 2px;
+    background: var(--accent-2);
+    margin: 0 auto 26px;
+  }
+  .err-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(21px, 3vw, 27px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .err-text {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 34px;
+  }
+  .err-path {
+    display: block;
+    margin: 0 auto 34px;
+    padding: 9px 15px;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .err-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s, border-color .2s, transform .2s;
+  }
+  .btn-primary { background: var(--accent-1); color: #fff; border: 1px solid var(--accent-1); }
+  .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
+  .btn-ghost { color: var(--text); border: 1px solid var(--border); background: var(--surface); }
+  .btn-ghost:hover { border-color: var(--accent-2); transform: translateY(-2px); }
+  .err-foot {
+    margin-top: 46px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .err-foot a { color: var(--accent-2); text-decoration: none; }
+  .err-foot a:hover { text-decoration: underline; }
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 16px;
+    display: grid;
+    place-items: center;
+  }
+  .theme-toggle:hover { border-color: var(--accent-2); }
+</style>
+</head>
+<body>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Rangni almashtirish">◐</button>
+
+<main class="err-wrap">
+  <div class="err-code">404</div>
+  <div class="err-rule"></div>
+  <h1 class="err-title">Sahifa topilmadi</h1>
+  <p class="err-text">
+    Siz izlagan manzil mavjud emas yoki ko'chirilgan.
+    Bu odatda noto'g'ri havola yoki o'chirilgan sahifaga bog'liq bo'ladi.
+  </p>
+  <code class="err-path code-font" id="requestedPath">/</code>
+  <div class="err-actions">
+    <a href="/" class="btn btn-primary">Bosh sahifaga qaytish</a>
+    <a href="/#contact" class="btn btn-ghost">Bog'lanish</a>
+  </div>
+  <p class="err-foot">
+    Muammo deb hisoblasangiz — <a href="/#contact">menga xabar bering</a>.
+  </p>
+</main>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var saved = null;
+    try { saved = localStorage.getItem("theme"); } catch (e) {}
+    if (saved === "light" || saved === "dark") {
+      root.setAttribute("data-theme", saved);
+    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+      root.setAttribute("data-theme", "light");
+    }
+
+    document.getElementById("themeToggle").addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+
+    var el = document.getElementById("requestedPath");
+    if (el && window.location.pathname !== "/404.html") {
+      el.textContent = window.location.pathname;
+    }
+  })();
+</script>
+</body>
+</html>

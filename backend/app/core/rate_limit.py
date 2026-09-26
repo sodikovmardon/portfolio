@@ -2,6 +2,7 @@
 Oddiy in-memory rate-limiting: bir email'dan 1 daqiqa ichida
 3 tadan ortiq xabar yuborish cheklangan.
 """
+
 from collections import defaultdict
 from time import time
 

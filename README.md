@@ -1,119 +1,312 @@
+<div align="center">
+
 # Mardon Sodiqov — Portfolio
 
-"Liquid glass" uslubidagi shaxsiy portfolio sayt. Backend va frontend bir
-portda (8000) ishlaydi — FastAPI orqali API va statik fayllar xizmat qilinadi.
+**FastAPI + vanilla JS portfolio — bitta portda frontend va backend**
 
-```
-project/
-├── backend/     → FastAPI (Python) — API + statik fayllarni serve qiladi
-├── frontend/    → Static sayt (HTML/CSS/JS) — dizayn va UI
-├── Dockerfile
-└── docker-compose.yml
-```
+[![CI](https://github.com/sodikovmardon/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/sodikovmardon/portfolio/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/tests-66%20passing-22c55e)](https://github.com/sodikovmardon/portfolio/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/python-3.12-3776ab?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115.6-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0-71b5a0)](https://www.sqlalchemy.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-261230)](https://docs.astral.sh/ruff/)
 
-## Dizayn
+</div>
 
-- Fon: chuqur tungi ("deep space") gradient + sekin suzuvchi rangli "blob"lar
-- Barcha panellar: frosted-glass (`backdrop-filter: blur`) effekti, yumaloq burchaklar
-- Shrift: Sora (sarlavhalar), Inter (matn), JetBrains Mono (raqam/teglar)
-- To'liq responsive, scroll'da paydo bo'luvchi animatsiyalar
+---
 
-## Tezkor ishga tushirish (Docker bilan — tavsiya etiladi)
+## Nima uchun bu loyiha
 
-```bash
-docker compose up --build
-```
+Ushbu loyiha mening backend ishlab chiqish ko'nikmalarimni amalda ko'rsatish uchun
+qurilgan: xabarlarni qabul qiluvchi REST API, asinxron SQLAlchemy, Pydantic bilan
+qat'iy validatsiya, in-memory rate limiting va xavfsizlik header'lari. Frontend
+qismi esa maxsus kutubxonalarsiz — sof HTML, CSS va JavaScript — yozilgan, shuning
+uchun sayt build bosqichisiz, to'g'ridan-to'g'ri ishlaydi.
 
-- Sayt + API: http://localhost:8000
-- Swagger hujjatlari: http://localhost:8000/docs
+Loyiha **bitta portda** ishlaydi: FastAPI ham API'ni, ham statik frontend fayllarini
+bir xil manzildan beradi. Alohida frontend serveri yoki Node.js build pipeline yo'q.
 
-## Docker'siz ishga tushirish
+> **Holat:** Bu mening ochiq kodli portfolio loyiham. Ma'lumotlar (ish tajribasi,
+> muddatlar, sertifikatlar) mening haqiqiy faoliyatimga asoslangan.
 
-```bash
-cd backend
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
-uvicorn app.main:app --reload
-```
-
-Brauzerda oching: http://localhost:8000
-
-Backend orqali statik fayllar (HTML/CSS/JS) ham serve qilinadi — alohida
-http-server yoki boshqa port kerak emas.
-
-## API
-
-| Method | Endpoint         | Tavsif                          |
-|--------|------------------|----------------------------------|
-| GET    | `/api/health`    | Server holatini tekshirish       |
-| POST   | `/api/contact`   | Yangi xabar yuborish (forma)     |
-| GET    | `/api/contact`   | So'nggi xabarlar ro'yxati        |
-
-To'liq interaktiv hujjatlar: `/docs` (Swagger UI).
+---
 
 ## Texnologiyalar
 
-**Backend:** FastAPI, SQLAlchemy 2 (async), SQLite (production'da PostgreSQL'ga
-oson o'zgartiriladi), Pydantic v2, StaticFiles.
+### Backend
 
-**Frontend:** Toza HTML/CSS/JS — hech qanday build vositasi shart emas.
+| Texnologiya | Versiya | Vazifasi |
+|---|---|---|
+| Python | 3.12 | Asosiy til |
+| FastAPI | 0.115.6 | REST API, avtomatik Swaggerdocs (`/docs`) |
+| Uvicorn | 0.32.1 | ASGI server |
+| SQLAlchemy | 2.0.36 | ORM (async rejimda) |
+| aiosqlite | 0.20.0 | Asinxron SQLite driver |
+| Pydantic | 2.10.3 | Sozlamalar va sxemalar, validatsiya |
+| pydantic-settings | 2.7.0 | `.env` dan sozlamalarni o'qish |
+| email-validator | 2.2.0 | `EmailStr` maydoni uchun RFC tekshiruvi |
+| python-dotenv | 1.0.1 | `.env` faylni yuklash |
 
-## Render.com ga deploy qilish
+> PostgreSQL'ga o'tish uchun `DATABASE_URL` ni almashtirish yetarli
+> (`postgresql+asyncpg://...`) — kod boshqacha emas.
 
-### 1-qadam: GitHub repo'ni Render'ga ulash
+### Frontend
 
-1. https://dashboard.render.com ga kiring
-2. **New** > **Web Service** ni bosing
-3. GitHub'dan `sodikovmardon/portfolio` repo'ni tanlang
-4. Quyidagilarni kiriting:
-   - **Name:** `mardon-portfolio`
-   - **Root Directory:** `backend`
-   - **Runtime:** `Python 3`
-   - **Build Command:** `pip install -r requirements.txt`
-   - **Start Command:** `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-   - **Plan:** Free
+| Texnologiya | Vazifasi |
+|---|---|
+| HTML5 | Semantik markup, `schema.org` JSON-LD |
+| CSS3 | Custom properties, `clamp()`, `backdrop-filter`, container-friendly layout |
+| Vanilla JavaScript | Til almashtirish, tema, scroll-spy, lightbox |
+| Google Fonts | Sora (sarlavha), Inter (matn), JetBrains Mono (kod) |
 
-### 2-qadam: Muhit o'zgaruvchilarini qo'shish
+**Build step yo'q.** `package.json`, `node_modules` va bundler talab qilinmaydi.
 
-Render dashboard'da **Environment** bo'limiga quyidagilarni kiriting:
+### Test va sifat nazorati
 
-| Kalit | Qiymat | Izoh |
-|-------|--------|------|
-| `ENVIRONMENT` | `production` | Muhit turi |
-| `DATABASE_URL` | `sqlite+aiosqlite:///./portfolio.db` | Hozircha SQLite |
-| `ALLOWED_ORIGINS` | `https://mardon-portfolio.onrender.com` | CORS uchun |
+| Vosita | Versiya | Vazifasi |
+|---|---|---|
+| pytest | 9.1.1 | 66 ta test |
+| httpx | 0.28.1 | `TestClient` orqali so'rov yuborish |
+| ruff | 0.16.9 | Linter + format checker |
+| GitHub Actions | — | Har push/PR da avtomatik test |
 
-> **Muhim:** `ALLOWED_ORIGINS` qiymatini deploy bo'lgandan keyin o'zgartiring —
-> haqiqiy Render manzilingiz ko'rinishida bo'lishi kerak.
+---
 
-### 3-qadam: PostgreSQL ga o'tish (ixtiyoriy, lekin tavsiya etiladi)
+## Loyiha strukturasi
 
-Render'ning bepul PostgreSQL xizmatidan foydalanishingiz mumkin:
+```
+mardon-portfolio/
+├── backend/
+│   ├── app/
+│   │   ├── main.py              # Kirish nuqtasi, middleware, statik mount
+│   │   ├── api/
+│   │   │   └── contact.py       # /api/contact endpoint'lari
+│   │   ├── core/
+│   │   │   ├── config.py        # Pydantic Settings (.env)
+│   │   │   ├── database.py      # Async engine, session, get_db
+│   │   │   └── rate_limit.py    # In-memory sliding-window limiter
+│   │   ├── models/contact.py    # SQLAlchemy model
+│   │   ├── schemas/contact.py   # Pydantic sxemalar
+│   │   └── services/
+│   │       └── contact_service.py
+│   ├── tests/                   # 66 ta pytest test
+│   │   ├── conftest.py          # Izolyatsiyalangan test bazasi
+│   │   ├── test_health.py
+│   │   ├── test_contact.py
+│   │   └── test_app.py          # header'lar, 404, SEO, config
+│   ├── requirements.txt
+│   ├── requirements-dev.txt     # + pytest, httpx, ruff
+│   ├── ruff.toml
+│   ├── pytest.ini
+│   ├── .env.example
+│   └── Dockerfile
+├── frontend/
+│   ├── index.html
+│   ├── 404.html                 # Maxsus 404 sahifasi
+│   ├── sitemap.xml
+│   ├── robots.txt
+│   ├── css/style.css
+│   ├── js/
+│   │   ├── script.js
+│   │   └── translations.js      # UZ / RU / EN
+│   └── assets/                  # Rasmlar, favicon, CV, OG-image
+├── .github/workflows/ci.yml
+├── .gitignore
+├── Dockerfile
+├── docker-compose.yml
+├── render.yaml
+├── run.sh / stop.sh
+├── LICENSE
+└── README.md
+```
 
-1. Dashboard'da **New** > **PostgreSQL** bosing
-2. Bepul rejani tanlang
-3. yaratilgan DATABASE_URL ni Web Service env vars'iga qo'shing:
-   ```
-   DATABASE_URL=postgresql+asyncpg://user:password@host:5432/dbname
-   ```
-4. `requirements.txt` ga `asyncpg` qo'shing:
-   ```
-   pip install asyncpg
-   ```
+---
 
-> **Diqqat:** Render bepul rejasida SQLite fayli doimiy saqlanmaydi.
-> Har safar qayta deploy yoki restart bo'lganda Bog'lanish xabarlari yo'qoladi.
-> Doimiy saqlash uchun PostgreSQL ishlating.
+## O'rnatish va ishga tushirish
 
-### Free plan cheklovlari
+### 1-usul: Docker bilan (tavsiya etiladi)
 
-- Sayt 15 daqiqa foydalanilmasa "uxlab qoladi" (cold start)
-- Birinchi so'rov 30-50 soniya sekin ochilishi mumkin
-- Render uni qayta ishga tushirgandan keyin yana tez ishlaydi
+```bash
+git clone https://github.com/sodikovmardon/portfolio.git
+cd mardon-portfolio
+docker compose up --build
+```
 
-### Blueprint (avtomatik setup)
+Sayt: <http://localhost:8000> · Swagger: <http://localhost:8000/docs>
 
-Agar `render.yaml` fayli repo'ning ildizida bo'lsa, Render uni avtomatik aniqlaydi
-va Blueprint orqali avtomatik sozlaydi. Bunda yuqoridagi qo'lda kirish kerak emas.
+To'xtatish: `Ctrl+C` · To'liq tozalash: `docker compose down -v`
+
+### 2-usul: Docker'siz (Python 3.12+)
+
+```bash
+git clone https://github.com/sodikovmardon/portfolio.git
+cd mardon-portfolio
+
+# Virtual muhit
+python3 -m venv backend/.venv
+source backend/.venv/bin/activate        # Windows: backend\.venv\Scripts\activate
+
+# Dependency'lar
+pip install -r backend/requirements-dev.txt
+
+# Sozlamalar
+cp backend/.env.example backend/.env
+
+# Ishga tushirish
+bash run.sh
+```
+
+Yoki qo'lda:
+
+```bash
+cd backend
+source .venv/bin/activate
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+To'xtatish: `bash stop.sh`
+
+> Ilova ishga tushganda jadvallar avtomatik yaratiladi
+> (`init_db` → `Base.metadata.create_all`). Qo'lda `portfolio.db`
+> yaratish shart emas.
+
+### 3-usul: Faqat testlarni ishga tushirish
+
+```bash
+cd backend
+source .venv/bin/activate
+pip install -r requirements-dev.txt
+
+pytest              # 66 ta test
+ruff check app tests
+ruff format --check app tests
+```
+
+> **Testlar real ma'lumotlar bazasiga tegmaydi.** `conftest.py` `DATABASE_URL` ni
+> vaqtinchalik `_pytest_test.db` fayliga qayta yo'naltiradi va sessiya
+> tugagach uni o'chiradi. Har bir testdan oldin jadval tozalanadi va
+> rate limiter reset qilinadi.
+
+---
+
+## API
+
+Barcha endpoint'lar `/api` prefiksi ostida. To'liq interaktiv hujjat:
+**<http://localhost:8000/docs>**
+
+| Metod | Endpoint | Tavsif | Kod |
+|---|---|---|---|
+| `GET` | `/api/health` | Ilova holatini tekshirish | `200` |
+| `POST` | `/api/contact` | Yangi xabar yaratish | `201` |
+| `GET` | `/api/contact` | Xabarlar ro'yxati (`?limit=`, standart 50) | `200` |
+
+### `POST /api/contact` — so'rov tanasi
+
+```json
+{
+  "name": "Aziz Karimov",
+  "email": "aziz@example.com",
+  "message": "Salom! Loyiha haqida qisqa savolim bor."
+}
+```
+
+**Qoidalar:** `name` 2–120 belgi · `email` RFC-valid · `message` 5–3000 belgi
+
+**Muvaffaqiyatli javob (`201`):**
+
+```json
+{
+  "success": true,
+  "detail": "Xabaringiz muvaffaqiyatli yuborildi.",
+  "data": {
+    "id": 1,
+    "name": "Aziz Karimov",
+    "email": "aziz@example.com",
+    "message": "Salom! Loyiha haqida qisqa savolim bor.",
+    "created_at": "2026-09-26T12:00:00Z"
+  }
+}
+```
+
+**Xatolar:**
+
+| Kod | Sabab |
+|---|---|
+| `422` | Validatsiya xatosi (noto'g'ri email, bo'sh maydon, uzunlik chegarasi) |
+| `429` | Rate limit: 1 daqiqada 3 tadan ortiq xabar |
+| `500` | Server xatosi (ichki tafsilot foydalanuvchiga ko'rsatilmaydi) |
+
+### Misol so'rov
+
+```bash
+curl -X POST http://localhost:8000/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Aziz Karimov","email":"aziz@example.com","message":"Salom!"}'
+
+curl http://localhost:8000/api/health
+```
+
+---
+
+## Xavfsizlik
+
+| Chora | Ta'sir ko'rsatadigan joy |
+|---|---|
+| `X-Content-Type-Options: nosniff` | MIME-sniffing'dan himoya |
+| `X-Frame-Options: DENY` | Clickjacking'dan himoya |
+| `Referrer-Policy: strict-origin-when-cross-origin` | Manzil oshkor qilinmasligi |
+| CORS `allow_origins` | Faqat `.env` dagi ro'yxatdan |
+| In-memory rate limiting | 1 email / daqiqada 3 ta xabar |
+| Pydantic validatsiya | SQL injection o'rniga — sxema tekshiruvi |
+| Umumiy xato handler'i | Stack trace va DB xatolari foydalanuvchiga chiqmaydi |
+| `.env` `.gitignore` da | Maxfiy kalitlar tarihga tushmaydi |
+
+> Ichki xatolar to'liq `logging` orqali server loglariga yoziladi
+> (`logger.exception`), foydalanuvchiga esa faqat umumiy xabar qaytariladi.
+
+---
+
+## CI/CD
+
+`.github/workflows/ci.yml` — `main` branch'ga har bir push va PR da ishga tushadi:
+
+1. Python 3.12 o'rnatish (pip cache bilan)
+2. `requirements-dev.txt` dan dependency o'rnatish
+3. `ruff check` + `ruff format --check`
+4. `pytest -v`
+
+Workflow yashil bo'lsa, README'dagi **CI** badge yonishadi.
+
+---
+
+## SEO va topiluvchanlik
+
+- `frontend/sitemap.xml` — 10 ta manzil (bosh sahifa + 9 bo'lim anchorlari)
+- `frontend/robots.txt` — indekslashga ruxsat, `/api/` bloklangan
+- `index.html`: `title`, `description`, `canonical`, Open Graph, Twitter Card
+- `schema.org` JSON-LD (`@type: Person`) — til, ma'lumot, sertifikatlar
+- `frontend/404.html` — dizayn tiliga mos maxsus sahifa, `noindex`
+- `assets/og-image.png` — ijtimoiy tarmoqlar uchun
+
+> **Diqqat:** Domen `SITE_URL` da belgilangan. Agar boshqa domen ishlatilsa,
+> `backend/.env`, `frontend/sitemap.xml`, `frontend/robots.txt` va `index.html`
+> dagi `canonical` / `og:url` qiymatlarini yangilash kerak.
+
+---
+
+## Litsenziya
+
+MIT — [LICENSE](LICENSE) faylini ko'ring.
+
+```
+Copyright (c) 2026 Mardon Sodiqov
+```
+
+---
+
+## Aloqa
+
+- **GitHub** — <https://github.com/sodikovmardon>
+- **Telegram** — <https://t.me/mardonsodikov>
+- **Email** — mardonsodikov1@gmail.com

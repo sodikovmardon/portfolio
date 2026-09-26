@@ -1,8 +1,20 @@
 services:
   backend:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: portfolio
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=sqlite+aiosqlite:///./portfolio.db
+      # SQLite fayli named volume'da saqlanadi — konteyner qayta
+      # qurilganda ham xabarlar o'chmaydi.
+      - DATABASE_URL=sqlite+aiosqlite:///./data/portfolio.db
+      - ENVIRONMENT=development
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - portfolio-data:/app/backend/data
+    restart: unless-stopped
+
+volumes:
+  portfolio-data:

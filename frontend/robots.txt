@@ -1,0 +1,15 @@
+# robots.txt — mardon-portfolio
+# Barcha qidiruv botlariga indekslashga ruxsat beriladi.
+
+User-agent: *
+Allow: /
+
+# Ichki va texnik endpoint'lar indekslanmasin
+Disallow: /api/
+Disallow: /404.html
+
+# Maxsus fayllar indekslanmasin
+Disallow: /*.pdf$
+Disallow: /*.db$
+
+Sitemap: https://mardon-portfolio.onrender.com/sitemap.xml

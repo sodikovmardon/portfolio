@@ -1,6 +1,7 @@
 """
 /api/contact — portfolio saytidagi Bog'lanish formasi uchun endpoint.
 """
+
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy.ext.asyncio import AsyncSession
 

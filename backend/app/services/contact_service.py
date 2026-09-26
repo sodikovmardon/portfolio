@@ -1,6 +1,7 @@
 """
 Contact xizmati — API qatlamidan biznes-logikani ajratib turadi.
 """
+
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
